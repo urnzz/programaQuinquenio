@@ -172,6 +172,76 @@
                   <pointsize>17</pointsize>
                  </font>
                 </property>
+                <item>
+                 <property name="text">
+                  <string>CONTRATADO</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>SEM INTERESSE</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>JA INGRESSOU COM TODAS AÇOES</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>ATENDIMENTO AGENDADO</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>CONTRATO COM PARCEIRO</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>CORRESPONDENCIA ENVIADA</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>CONTATOS INVALIDOS/SEM CONTATO</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>LIGAÇÃO NÃO ATENDIDA</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>EMAIL</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>AGUARDANDO ENTREGA DE FORMULÁRIO</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>JÁ TEM AÇÃO DE QUINQUENIO</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>HERDEIRO DESAPARECIDO</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>NÃO TEM HERDEIRO VIVO</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>NOVO ENDEREÇO INSERIDO</string>
+                 </property>
+                </item>
                </widget>
               </item>
               <item row="0" column="2" colspan="2">
@@ -214,6 +284,41 @@
                   <pointsize>17</pointsize>
                  </font>
                 </property>
+                <item>
+                 <property name="text">
+                  <string>EDUARDO/VISITA</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>CAIO/CORRESPONDENCIA</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>JESSICA</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>TAMIRES</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>NAIANA SETOR CAPTAÇÃO</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>JEFFERSON SETOR CAPTAÇÃO</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>MARYANNY SETOR CAPTÇÃO</string>
+                 </property>
+                </item>
                </widget>
               </item>
              </layout>
@@ -227,7 +332,7 @@
              <property name="frameShadow">
               <enum>QFrame::Raised</enum>
              </property>
-             <layout class="QGridLayout" name="gridLayout_3">
+             <layout class="QGridLayout" name="gridLayout_4">
               <item row="0" column="0" colspan="2">
                <widget class="QLabel" name="dataLig1L">
                 <property name="font">
@@ -268,6 +373,41 @@
                   <pointsize>17</pointsize>
                  </font>
                 </property>
+                <item>
+                 <property name="text">
+                  <string>EDUARDO/VISITA</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>CAIO/CORRESPONDENCIA</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>JESSICA</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>TAMIRES</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>NAIANA SETOR CAPTAÇÃO</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>JEFFERSON SETOR CAPTAÇÃO</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>MARYANNY SETOR CAPTÇÃO</string>
+                 </property>
+                </item>
                </widget>
               </item>
               <item row="1" column="0">
@@ -302,7 +442,7 @@
              <property name="frameShadow">
               <enum>QFrame::Raised</enum>
              </property>
-             <layout class="QGridLayout" name="gridLayout_4">
+             <layout class="QGridLayout" name="gridLayout_3">
               <item row="0" column="0" colspan="2">
                <widget class="QLabel" name="dataLig2L">
                 <property name="font">
@@ -343,6 +483,41 @@
                   <pointsize>17</pointsize>
                  </font>
                 </property>
+                <item>
+                 <property name="text">
+                  <string>EDUARDO/VISITA</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>CAIO/CORRESPONDENCIA</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>JESSICA</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>TAMIRES</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>NAIANA SETOR CAPTAÇÃO</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>JEFFERSON SETOR CAPTAÇÃO</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>MARYANNY SETOR CAPTÇÃO</string>
+                 </property>
+                </item>
                </widget>
               </item>
               <item row="1" column="0">
@@ -411,15 +586,6 @@
                 </property>
                </widget>
               </item>
-              <item row="0" column="4">
-               <widget class="QComboBox" name="resp3C">
-                <property name="font">
-                 <font>
-                  <pointsize>17</pointsize>
-                 </font>
-                </property>
-               </widget>
-              </item>
               <item row="1" column="0">
                <widget class="QLabel" name="resm3L">
                 <property name="font">
@@ -439,6 +605,50 @@
                   <pointsize>17</pointsize>
                  </font>
                 </property>
+               </widget>
+              </item>
+              <item row="0" column="4">
+               <widget class="QComboBox" name="resp3C">
+                <property name="font">
+                 <font>
+                  <pointsize>17</pointsize>
+                 </font>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>EDUARDO/VISITA</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>CAIO/CORRESPONDENCIA</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>JESSICA</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>TAMIRES</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>NAIANA SETOR CAPTAÇÃO</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>JEFFERSON SETOR CAPTAÇÃO</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>MARYANNY SETOR CAPTÇÃO</string>
+                 </property>
+                </item>
                </widget>
               </item>
              </layout>
@@ -486,15 +696,6 @@
                 </property>
                </widget>
               </item>
-              <item row="0" column="4">
-               <widget class="QComboBox" name="resp4C">
-                <property name="font">
-                 <font>
-                  <pointsize>17</pointsize>
-                 </font>
-                </property>
-               </widget>
-              </item>
               <item row="1" column="0">
                <widget class="QLabel" name="resm4L">
                 <property name="font">
@@ -514,6 +715,50 @@
                   <pointsize>17</pointsize>
                  </font>
                 </property>
+               </widget>
+              </item>
+              <item row="0" column="4">
+               <widget class="QComboBox" name="resp4C">
+                <property name="font">
+                 <font>
+                  <pointsize>17</pointsize>
+                 </font>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>EDUARDO/VISITA</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>CAIO/CORRESPONDENCIA</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>JESSICA</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>TAMIRES</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>NAIANA SETOR CAPTAÇÃO</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>JEFFERSON SETOR CAPTAÇÃO</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>MARYANNY SETOR CAPTÇÃO</string>
+                 </property>
+                </item>
                </widget>
               </item>
              </layout>
@@ -561,15 +806,6 @@
                 </property>
                </widget>
               </item>
-              <item row="0" column="4">
-               <widget class="QComboBox" name="resp5C">
-                <property name="font">
-                 <font>
-                  <pointsize>17</pointsize>
-                 </font>
-                </property>
-               </widget>
-              </item>
               <item row="1" column="0">
                <widget class="QLabel" name="resm5L">
                 <property name="font">
@@ -589,6 +825,50 @@
                   <pointsize>17</pointsize>
                  </font>
                 </property>
+               </widget>
+              </item>
+              <item row="0" column="4">
+               <widget class="QComboBox" name="resp5C">
+                <property name="font">
+                 <font>
+                  <pointsize>17</pointsize>
+                 </font>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>EDUARDO/VISITA</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>CAIO/CORRESPONDENCIA</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>JESSICA</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>TAMIRES</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>NAIANA SETOR CAPTAÇÃO</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>JEFFERSON SETOR CAPTAÇÃO</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>MARYANNY SETOR CAPTÇÃO</string>
+                 </property>
+                </item>
                </widget>
               </item>
              </layout>
@@ -965,6 +1245,16 @@
                   <pointsize>17</pointsize>
                  </font>
                 </property>
+                <item>
+                 <property name="text">
+                  <string>POSITIVO</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>MUDOU</string>
+                 </property>
+                </item>
                </widget>
               </item>
               <item row="1" column="0">
@@ -1016,6 +1306,16 @@
                   <pointsize>17</pointsize>
                  </font>
                 </property>
+                <item>
+                 <property name="text">
+                  <string>POSITIVO</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>MUDOU</string>
+                 </property>
+                </item>
                </widget>
               </item>
               <item row="2" column="0">
@@ -1067,6 +1367,16 @@
                   <pointsize>17</pointsize>
                  </font>
                 </property>
+                <item>
+                 <property name="text">
+                  <string>POSITIVO</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>MUDOU</string>
+                 </property>
+                </item>
                </widget>
               </item>
               <item row="3" column="0">
@@ -1118,6 +1428,16 @@
                   <pointsize>17</pointsize>
                  </font>
                 </property>
+                <item>
+                 <property name="text">
+                  <string>POSITIVO</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>MUDOU</string>
+                 </property>
+                </item>
                </widget>
               </item>
               <item row="4" column="0">
@@ -1169,6 +1489,16 @@
                   <pointsize>17</pointsize>
                  </font>
                 </property>
+                <item>
+                 <property name="text">
+                  <string>POSITIVO</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>MUDOU</string>
+                 </property>
+                </item>
                </widget>
               </item>
              </layout>
