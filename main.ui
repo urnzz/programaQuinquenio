@@ -137,7 +137,7 @@
        <item>
         <widget class="QTabWidget" name="tabWidget">
          <property name="currentIndex">
-          <number>0</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="tab">
           <attribute name="title">
@@ -351,7 +351,7 @@
                  </font>
                 </property>
                 <property name="text">
-                 <string>DATA PROXIMA LIGAÇÃO:</string>
+                 <string>DATA LIGAÇÃO:</string>
                 </property>
                </widget>
               </item>
@@ -466,7 +466,7 @@
                  </font>
                 </property>
                 <property name="text">
-                 <string>DATA PROXIMA LIGAÇÃO:</string>
+                 <string>DATA LIGAÇÃO:</string>
                 </property>
                </widget>
               </item>
@@ -581,7 +581,7 @@
                  </font>
                 </property>
                 <property name="text">
-                 <string>DATA PROXIMA LIGAÇÃO:</string>
+                 <string>DATA LIGAÇÃO:</string>
                 </property>
                </widget>
               </item>
@@ -696,7 +696,7 @@
                  </font>
                 </property>
                 <property name="text">
-                 <string>DATA PROXIMA LIGAÇÃO:</string>
+                 <string>DATA LIGAÇÃO:</string>
                 </property>
                </widget>
               </item>
@@ -811,7 +811,7 @@
                  </font>
                 </property>
                 <property name="text">
-                 <string>DATA PROXIMA LIGAÇÃO:</string>
+                 <string>DATA LIGAÇÃO:</string>
                 </property>
                </widget>
               </item>

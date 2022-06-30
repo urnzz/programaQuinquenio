@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+import pymysql
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -748,7 +748,7 @@ class Ui_MainWindow(object):
         self.respFechC.setItemText(5, _translate("MainWindow", "NAIANA SETOR CAPTAÇÃO"))
         self.respFechC.setItemText(6, _translate("MainWindow", "JEFFERSON SETOR CAPTAÇÃO"))
         self.respFechC.setItemText(7, _translate("MainWindow", "MARYANNY SETOR CAPTÇÃO"))
-        self.dataLig1L.setText(_translate("MainWindow", "DATA PROXIMA LIGAÇÃO:"))
+        self.dataLig1L.setText(_translate("MainWindow", "DATA LIGAÇÃO:"))
         self.resp1L.setText(_translate("MainWindow", "RESPONSÁVEL:"))
         self.resp1C.setItemText(0, _translate("MainWindow", " "))
         self.resp1C.setItemText(1, _translate("MainWindow", "EDUARDO/VISITA"))
@@ -759,7 +759,7 @@ class Ui_MainWindow(object):
         self.resp1C.setItemText(6, _translate("MainWindow", "JEFFERSON SETOR CAPTAÇÃO"))
         self.resp1C.setItemText(7, _translate("MainWindow", "MARYANNY SETOR CAPTÇÃO"))
         self.resm1L.setText(_translate("MainWindow", "RESUMO:"))
-        self.dataLig2L.setText(_translate("MainWindow", "DATA PROXIMA LIGAÇÃO:"))
+        self.dataLig2L.setText(_translate("MainWindow", "DATA LIGAÇÃO:"))
         self.resp2L.setText(_translate("MainWindow", "RESPONSÁVEL:"))
         self.resp2C.setItemText(0, _translate("MainWindow", " "))
         self.resp2C.setItemText(1, _translate("MainWindow", "EDUARDO/VISITA"))
@@ -770,7 +770,7 @@ class Ui_MainWindow(object):
         self.resp2C.setItemText(6, _translate("MainWindow", "JEFFERSON SETOR CAPTAÇÃO"))
         self.resp2C.setItemText(7, _translate("MainWindow", "MARYANNY SETOR CAPTÇÃO"))
         self.resm2L.setText(_translate("MainWindow", "RESUMO:"))
-        self.dataLig3L.setText(_translate("MainWindow", "DATA PROXIMA LIGAÇÃO:"))
+        self.dataLig3L.setText(_translate("MainWindow", "DATA LIGAÇÃO:"))
         self.resp3L.setText(_translate("MainWindow", "RESPONSÁVEL:"))
         self.resm3L.setText(_translate("MainWindow", "RESUMO:"))
         self.resp3C.setItemText(0, _translate("MainWindow", " "))
@@ -781,7 +781,7 @@ class Ui_MainWindow(object):
         self.resp3C.setItemText(5, _translate("MainWindow", "NAIANA SETOR CAPTAÇÃO"))
         self.resp3C.setItemText(6, _translate("MainWindow", "JEFFERSON SETOR CAPTAÇÃO"))
         self.resp3C.setItemText(7, _translate("MainWindow", "MARYANNY SETOR CAPTÇÃO"))
-        self.dataLig4L.setText(_translate("MainWindow", "DATA PROXIMA LIGAÇÃO:"))
+        self.dataLig4L.setText(_translate("MainWindow", "DATA LIGAÇÃO:"))
         self.resp4L.setText(_translate("MainWindow", "RESPONSÁVEL:"))
         self.resm4L.setText(_translate("MainWindow", "RESUMO:"))
         self.resp4C.setItemText(0, _translate("MainWindow", " "))
@@ -792,7 +792,7 @@ class Ui_MainWindow(object):
         self.resp4C.setItemText(5, _translate("MainWindow", "NAIANA SETOR CAPTAÇÃO"))
         self.resp4C.setItemText(6, _translate("MainWindow", "JEFFERSON SETOR CAPTAÇÃO"))
         self.resp4C.setItemText(7, _translate("MainWindow", "MARYANNY SETOR CAPTÇÃO"))
-        self.dataLig5L.setText(_translate("MainWindow", "DATA PROXIMA LIGAÇÃO:"))
+        self.dataLig5L.setText(_translate("MainWindow", "DATA LIGAÇÃO:"))
         self.resp5L.setText(_translate("MainWindow", "RESPONSÁVEL:"))
         self.resm5L.setText(_translate("MainWindow", "RESUMO:"))
         self.resp5C.setItemText(0, _translate("MainWindow", " "))
@@ -841,6 +841,189 @@ class Ui_MainWindow(object):
         self.obs5C.setItemText(2, _translate("MainWindow", "MUDOU"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "DADOS SEVIDOR"))
 
+    def init(self):
+        self.n=0
+        self.nextB.clicked.connect(self.btnProx)
+        self.prevB.clicked.connect(self.btnPrev)
+        self.saveB.clicked.connect(self.btnSalvar)
+        self.reloadB.clicked.connect(self.reload)
+
+    def fQuery(self):
+        connection = pymysql.connect(host='152.70.156.5',
+                                     user='quinquenio',
+                                     password='gabriel2671',
+                                     database='quinquenio',
+                                     charset='utf8mb4',
+                                     cursorclass=pymysql.cursors.DictCursor)
+        with connection:
+            with connection.cursor() as cursor:
+                sql = "SELECT * from quinquenioData"
+                cursor.execute(sql)
+                self.result = cursor.fetchall()
+                print(self.result[0])
+
+
+    def btnProx(self):
+        self.n += 1
+        self.setData()
+
+    def btnPrev(self):
+        self.n -= 1
+        self.setData()
+
+    def btnSalvar(self):
+        nome = self.nomeC.text()
+        id1 = self.idC.text()
+        cpf = self.cpfC.text()
+        sit = self.situacaoC.currentText()
+        dataProx = self.dataProxC.date().toString("dd-MM-yyyy")
+        respFech = self.respFechC.currentText()
+        data1 = self.dataLig1C.date().toString("dd-MM-yyyy")
+        data2 = self.dataLig2C.date().toString("dd-MM-yyyy")
+        data3 = self.dataLig3C.date().toString("dd-MM-yyyy")
+        data4 = self.dataLig4C.date().toString("dd-MM-yyyy")
+        data5 = self.dataLig5C.date().toString("dd-MM-yyyy")
+        resp1 = self.resp1C.currentText()
+        resp2 = self.resp2C.currentText()
+        resp3 = self.resp3C.currentText()
+        resp4 = self.resp4C.currentText()
+        resp5 = self.resp5C.currentText()
+        resm1 = self.resm1C.toPlainText()
+        resm2 = self.resm2C.toPlainText()
+        resm3 = self.resm3C.toPlainText()
+        resm4 = self.resm4C.toPlainText()
+        resm5 = self.resm5C.toPlainText()
+        iben = self.iBenC.text()
+        nben = self.nBenC.text()
+        rg = self.rgC.text()
+        cargo = self.cargoC.text()
+        sexo = self.sexoC.text()
+        dn = self.dnC.text()
+        nmae = self.nMaeC.text()
+        npai = self.nPaiC.text()
+        end1 = self.end1C.text()
+        end2 = self.end2C.text()
+        end3 = self.end3C.text()
+        end4 = self.end4C.text()
+        end5 = self.end5C.text()
+        obs1 = self.obs1C.currentText()
+        obs2 = self.obs2C.currentText()
+        obs3 = self.obs3C.currentText()
+        obs4 = self.obs4C.currentText()
+        obs5 = self.obs5C.currentText()
+
+        paste = "('"+nome+"', '"+id1+"', '"+cpf+"', '"+sit+"', '"+dataProx+"', '"+respFech+"', '"+data1+"', '"+data2+"', '"+data3+"', '"+data4+"', '"+data5+"', '"+resp1+"', '"+resp2+"', '"+resp3+"', '"+resp4+"', '"+resp5+"', '"+resm1+"', '"+resm2+"', '"+resm3+"', '"+resm4+"', '"+resm5+"', '"+iben+"', '"+nben+"', '"+rg+"', '"+cargo+"', '"+sexo+"', '"+dn+"', '"+nmae+"', '"+npai+"', '"+end1+"', '"+end2+"', '"+end3+"', '"+end4+"', '"+end5+"', '"+obs1+"', '"+obs2+"', '"+obs3+"', '"+obs4+"', '"+obs5+"')"
+
+        columns = "(nome, id, cpf, situacao, dataProx, respFech, data1, data2, data3, data4, data5, resp1, resp2, resp3, resp4, resp5, resm1, resm2, resm3, resm4, resm5, dataInic, numeroBeneficio, rg, nomeCargo, sexo, dn, nomeMae, nomePai, end1, end2, end3, end4, end5, obs1, obs2, obs3, obs4, obs5)"
+
+        connection = pymysql.connect(host='152.70.156.5',
+                                     user='quinquenio',
+                                     password='gabriel2671',
+                                     database='quinquenio',
+                                     charset='utf8mb4',
+                                     cursorclass=pymysql.cursors.DictCursor)
+        with connection:
+            with connection.cursor() as cursor:
+                sql = "REPLACE INTO quinquenioData "+columns+" VALUES "+paste
+                print(sql)
+                cursor.execute(sql)
+                connection.commit()
+        self.fQuery()
+        self.setData()
+
+    def reload(self):
+        self.fQuery()
+        self.setData()
+
+    def setData(self):
+        #nome header
+        self.nomeC.setText(self.result[self.n]['nome'])
+        #id header
+        self.idC.setText(str(self.result[self.n]['id']))
+        #cpf header
+        self.cpfC.setText(self.result[self.n]['cpf'])
+        #situação
+        self.situacaoC.setCurrentText(self.result[self.n]['situacao'])
+        #data prox lig
+        qdate = QtCore.QDate.fromString(self.result[self.n]['dataProx'], "dd-MM-yyyy")
+        self.dataProxC.setDate(qdate)
+        #resp fechamento
+        self.respFechC.setCurrentText(self.result[self.n]['respFech'])
+        #data lig1
+        qdate = QtCore.QDate.fromString(self.result[self.n]['data1'], "dd-MM-yyyy")
+        self.dataLig1C.setDate(qdate)
+        #data lig2
+        qdate = QtCore.QDate.fromString(self.result[self.n]['data2'], "dd-MM-yyyy")
+        self.dataLig2C.setDate(qdate)
+        #data lig3
+        qdate = QtCore.QDate.fromString(self.result[self.n]['data3'], "dd-MM-yyyy")
+        self.dataLig3C.setDate(qdate)
+        #data lig4
+        qdate = QtCore.QDate.fromString(self.result[self.n]['data4'], "dd-MM-yyyy")
+        self.dataLig4C.setDate(qdate)
+        #data lig5
+        qdate = QtCore.QDate.fromString(self.result[self.n]['data5'], "dd-MM-yyyy")
+        self.dataLig5C.setDate(qdate)
+        #resp1
+        self.resp1C.setCurrentText(self.result[self.n]['resp1'])
+        #resp2
+        self.resp2C.setCurrentText(self.result[self.n]['resp2'])
+        #resp3
+        self.resp3C.setCurrentText(self.result[self.n]['resp3'])
+        #resp4
+        self.resp4C.setCurrentText(self.result[self.n]['resp4'])
+        #resp5
+        self.resp5C.setCurrentText(self.result[self.n]['resp5'])
+        #resm1
+        self.resm1C.setPlainText(self.result[self.n]['resm1'])
+        #resm2
+        self.resm2C.setPlainText(self.result[self.n]['resm2'])
+        #resm3
+        self.resm3C.setPlainText(self.result[self.n]['resm3'])
+        #resm4
+        self.resm4C.setPlainText(self.result[self.n]['resm4'])
+        #resm5
+        self.resm5C.setPlainText(self.result[self.n]['resm5'])
+        #nome2C
+        self.nome2C.setText(self.result[self.n]['nome'])
+        #cpf2C
+        self.cpf2C.setText(self.result[self.n]['cpf'])
+        #inicio beneficio
+        self.iBenC.setText(self.result[self.n]['dataInic'])
+        #numero beneficio
+        self.nBenC.setText(self.result[self.n]['numeroBeneficio'])
+        #rg
+        self.rgC.setText(self.result[self.n]['rg'])
+        #cargo
+        self.cargoC.setText(self.result[self.n]['nomeCargo'])
+        #sexo
+        self.sexoC.setText(self.result[self.n]['sexo'])
+        #dn
+        self.dnC.setText(self.result[self.n]['dn'])
+        #nomeMae
+        self.nMaeC.setText(self.result[self.n]['nomeMae'])
+        #nomePai
+        self.nPaiC.setText(self.result[self.n]['nomePai'])
+        #end1
+        self.end1C.setText(self.result[self.n]['end1'])
+        #end2
+        self.end2C.setText(self.result[self.n]['end2'])
+        #end3
+        self.end3C.setText(self.result[self.n]['end3'])
+        #end4
+        self.end4C.setText(self.result[self.n]['end4'])
+        #end5
+        self.end5C.setText(self.result[self.n]['end5'])
+        #obs1
+        self.obs1C.setCurrentText(self.result[self.n]['obs1'])
+        #obs2
+        self.obs2C.setCurrentText(self.result[self.n]['obs2'])
+        #obs3
+        self.obs3C.setCurrentText(self.result[self.n]['obs3'])
+        #obs4
+        self.obs4C.setCurrentText(self.result[self.n]['obs4'])
+        #obs5
+        self.obs5C.setCurrentText(self.result[self.n]['obs5'])
 
 if __name__ == "__main__":
     import sys
@@ -848,5 +1031,8 @@ if __name__ == "__main__":
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
+    ui.init()
+    ui.fQuery()
+    ui.setData()
     MainWindow.show()
     sys.exit(app.exec_())
