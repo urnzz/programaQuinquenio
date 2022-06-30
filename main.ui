@@ -174,6 +174,11 @@
                 </property>
                 <item>
                  <property name="text">
+                  <string> </string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
                   <string>CONTRATADO</string>
                  </property>
                 </item>
@@ -286,6 +291,11 @@
                 </property>
                 <item>
                  <property name="text">
+                  <string> </string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
                   <string>EDUARDO/VISITA</string>
                  </property>
                 </item>
@@ -373,6 +383,11 @@
                   <pointsize>17</pointsize>
                  </font>
                 </property>
+                <item>
+                 <property name="text">
+                  <string> </string>
+                 </property>
+                </item>
                 <item>
                  <property name="text">
                   <string>EDUARDO/VISITA</string>
@@ -483,6 +498,11 @@
                   <pointsize>17</pointsize>
                  </font>
                 </property>
+                <item>
+                 <property name="text">
+                  <string> </string>
+                 </property>
+                </item>
                 <item>
                  <property name="text">
                   <string>EDUARDO/VISITA</string>
@@ -616,6 +636,11 @@
                 </property>
                 <item>
                  <property name="text">
+                  <string> </string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
                   <string>EDUARDO/VISITA</string>
                  </property>
                 </item>
@@ -726,6 +751,11 @@
                 </property>
                 <item>
                  <property name="text">
+                  <string> </string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
                   <string>EDUARDO/VISITA</string>
                  </property>
                 </item>
@@ -834,6 +864,11 @@
                   <pointsize>17</pointsize>
                  </font>
                 </property>
+                <item>
+                 <property name="text">
+                  <string> </string>
+                 </property>
+                </item>
                 <item>
                  <property name="text">
                   <string>EDUARDO/VISITA</string>
@@ -1247,6 +1282,11 @@
                 </property>
                 <item>
                  <property name="text">
+                  <string> </string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
                   <string>POSITIVO</string>
                  </property>
                 </item>
@@ -1306,6 +1346,11 @@
                   <pointsize>17</pointsize>
                  </font>
                 </property>
+                <item>
+                 <property name="text">
+                  <string> </string>
+                 </property>
+                </item>
                 <item>
                  <property name="text">
                   <string>POSITIVO</string>
@@ -1369,6 +1414,11 @@
                 </property>
                 <item>
                  <property name="text">
+                  <string> </string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
                   <string>POSITIVO</string>
                  </property>
                 </item>
@@ -1430,6 +1480,11 @@
                 </property>
                 <item>
                  <property name="text">
+                  <string> </string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
                   <string>POSITIVO</string>
                  </property>
                 </item>
@@ -1489,6 +1544,11 @@
                   <pointsize>17</pointsize>
                  </font>
                 </property>
+                <item>
+                 <property name="text">
+                  <string> </string>
+                 </property>
+                </item>
                 <item>
                  <property name="text">
                   <string>POSITIVO</string>
