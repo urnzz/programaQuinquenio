@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'main.ui'
+# Form implementation generated from reading ui file 'login.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.7
 #
@@ -10,8 +10,6 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 import pymysql
-from pylatex import Document, Section, Subsection, Command
-from pylatex.utils import italic, NoEscape
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -1120,14 +1118,56 @@ class Ui_MainWindow(object):
         #contagem
         self.contagemL.setText(str(self.n+1)+" de "+str(len(self.result)))
 
+class Ui_Form(object):
+    def setupUi(self, Form):
+        Form.setObjectName("Form")
+        Form.resize(640, 480)
+        self.gridLayout = QtWidgets.QGridLayout(Form)
+        self.gridLayout.setObjectName("gridLayout")
+        self.frame = QtWidgets.QFrame(Form)
+        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame.setObjectName("frame")
+        self.gridLayout_2 = QtWidgets.QGridLayout(self.frame)
+        self.gridLayout_2.setObjectName("gridLayout_2")
+        self.userL = QtWidgets.QLabel(self.frame)
+        self.userL.setObjectName("userL")
+        self.gridLayout_2.addWidget(self.userL, 0, 0, 1, 1)
+        self.userC = QtWidgets.QLineEdit(self.frame)
+        self.userC.setObjectName("userC")
+        self.gridLayout_2.addWidget(self.userC, 0, 1, 1, 1)
+        self.senhaL = QtWidgets.QLabel(self.frame)
+        self.senhaL.setObjectName("senhaL")
+        self.gridLayout_2.addWidget(self.senhaL, 1, 0, 1, 1)
+        self.senhaC = QtWidgets.QLineEdit(self.frame)
+        self.senhaC.setObjectName("senhaC")
+        self.gridLayout_2.addWidget(self.senhaC, 1, 1, 1, 1)
+        self.gridLayout.addWidget(self.frame, 0, 0, 1, 1)
+
+        self.retranslateUi(Form)
+        QtCore.QMetaObject.connectSlotsByName(Form)
+
+    def retranslateUi(self, Form):
+        _translate = QtCore.QCoreApplication.translate
+        Form.setWindowTitle(_translate("Form", "Login"))
+        self.userL.setText(_translate("Form", "Usuário"))
+        self.senhaL.setText(_translate("Form", "Senha"))
+
+    def callMainWindow(self):
+        self.window =QtWidgets.QMainWindow()
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self.window)
+        self.ui.init()
+        self.ui.fQuery()
+        self.ui.setData()
+        self.window.show()
+
+
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    ui.init()
-    ui.fQuery()
-    ui.setData()
-    MainWindow.show()
+    Form = QtWidgets.QWidget()
+    ui = Ui_Form()
+    ui.setupUi(Form)
+    Form.show()
     sys.exit(app.exec_())
