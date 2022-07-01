@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1267</width>
-    <height>881</height>
+    <height>962</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -122,6 +122,21 @@
          </property>
         </widget>
        </item>
+       <item row="0" column="7">
+        <widget class="QLabel" name="contagemL">
+         <property name="font">
+          <font>
+           <pointsize>17</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>0</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
       </layout>
      </widget>
     </item>
@@ -174,7 +189,7 @@
                 </property>
                 <item>
                  <property name="text">
-                  <string> </string>
+                  <string/>
                  </property>
                 </item>
                 <item>
@@ -291,7 +306,7 @@
                 </property>
                 <item>
                  <property name="text">
-                  <string> </string>
+                  <string/>
                  </property>
                 </item>
                 <item>
@@ -385,7 +400,7 @@
                 </property>
                 <item>
                  <property name="text">
-                  <string> </string>
+                  <string/>
                  </property>
                 </item>
                 <item>
@@ -500,7 +515,7 @@
                 </property>
                 <item>
                  <property name="text">
-                  <string> </string>
+                  <string/>
                  </property>
                 </item>
                 <item>
@@ -636,7 +651,7 @@
                 </property>
                 <item>
                  <property name="text">
-                  <string> </string>
+                  <string/>
                  </property>
                 </item>
                 <item>
@@ -751,7 +766,7 @@
                 </property>
                 <item>
                  <property name="text">
-                  <string> </string>
+                  <string/>
                  </property>
                 </item>
                 <item>
@@ -866,7 +881,7 @@
                 </property>
                 <item>
                  <property name="text">
-                  <string> </string>
+                  <string/>
                  </property>
                 </item>
                 <item>
@@ -1282,7 +1297,7 @@
                 </property>
                 <item>
                  <property name="text">
-                  <string> </string>
+                  <string/>
                  </property>
                 </item>
                 <item>
@@ -1348,7 +1363,7 @@
                 </property>
                 <item>
                  <property name="text">
-                  <string> </string>
+                  <string/>
                  </property>
                 </item>
                 <item>
@@ -1414,7 +1429,7 @@
                 </property>
                 <item>
                  <property name="text">
-                  <string> </string>
+                  <string/>
                  </property>
                 </item>
                 <item>
@@ -1480,7 +1495,7 @@
                 </property>
                 <item>
                  <property name="text">
-                  <string> </string>
+                  <string/>
                  </property>
                 </item>
                 <item>
@@ -1546,7 +1561,7 @@
                 </property>
                 <item>
                  <property name="text">
-                  <string> </string>
+                  <string/>
                  </property>
                 </item>
                 <item>

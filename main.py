@@ -11,10 +11,11 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import pymysql
 
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1267, 881)
+        MainWindow.resize(1267, 962)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
@@ -68,6 +69,13 @@ class Ui_MainWindow(object):
         self.cpfC.setFont(font)
         self.cpfC.setObjectName("cpfC")
         self.gridLayout.addWidget(self.cpfC, 1, 7, 1, 1)
+        self.contagemL = QtWidgets.QLabel(self.frame)
+        font = QtGui.QFont()
+        font.setPointSize(17)
+        self.contagemL.setFont(font)
+        self.contagemL.setAlignment(QtCore.Qt.AlignCenter)
+        self.contagemL.setObjectName("contagemL")
+        self.gridLayout.addWidget(self.contagemL, 0, 7, 1, 1)
         self.verticalLayout.addWidget(self.frame)
         self.frame_2 = QtWidgets.QFrame(self.centralwidget)
         self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -99,6 +107,7 @@ class Ui_MainWindow(object):
         self.situacaoC.setFont(font)
         self.situacaoC.setObjectName("situacaoC")
         self.situacaoC.addItem("")
+        self.situacaoC.setItemText(0, "")
         self.situacaoC.addItem("")
         self.situacaoC.addItem("")
         self.situacaoC.addItem("")
@@ -138,6 +147,7 @@ class Ui_MainWindow(object):
         self.respFechC.setFont(font)
         self.respFechC.setObjectName("respFechC")
         self.respFechC.addItem("")
+        self.respFechC.setItemText(0, "")
         self.respFechC.addItem("")
         self.respFechC.addItem("")
         self.respFechC.addItem("")
@@ -177,6 +187,7 @@ class Ui_MainWindow(object):
         self.resp1C.setFont(font)
         self.resp1C.setObjectName("resp1C")
         self.resp1C.addItem("")
+        self.resp1C.setItemText(0, "")
         self.resp1C.addItem("")
         self.resp1C.addItem("")
         self.resp1C.addItem("")
@@ -228,6 +239,7 @@ class Ui_MainWindow(object):
         self.resp2C.setFont(font)
         self.resp2C.setObjectName("resp2C")
         self.resp2C.addItem("")
+        self.resp2C.setItemText(0, "")
         self.resp2C.addItem("")
         self.resp2C.addItem("")
         self.resp2C.addItem("")
@@ -291,6 +303,7 @@ class Ui_MainWindow(object):
         self.resp3C.setFont(font)
         self.resp3C.setObjectName("resp3C")
         self.resp3C.addItem("")
+        self.resp3C.setItemText(0, "")
         self.resp3C.addItem("")
         self.resp3C.addItem("")
         self.resp3C.addItem("")
@@ -342,6 +355,7 @@ class Ui_MainWindow(object):
         self.resp4C.setFont(font)
         self.resp4C.setObjectName("resp4C")
         self.resp4C.addItem("")
+        self.resp4C.setItemText(0, "")
         self.resp4C.addItem("")
         self.resp4C.addItem("")
         self.resp4C.addItem("")
@@ -393,6 +407,7 @@ class Ui_MainWindow(object):
         self.resp5C.setFont(font)
         self.resp5C.setObjectName("resp5C")
         self.resp5C.addItem("")
+        self.resp5C.setItemText(0, "")
         self.resp5C.addItem("")
         self.resp5C.addItem("")
         self.resp5C.addItem("")
@@ -584,6 +599,7 @@ class Ui_MainWindow(object):
         self.obs1C.setFont(font)
         self.obs1C.setObjectName("obs1C")
         self.obs1C.addItem("")
+        self.obs1C.setItemText(0, "")
         self.obs1C.addItem("")
         self.obs1C.addItem("")
         self.gridLayout_10.addWidget(self.obs1C, 0, 3, 1, 1)
@@ -613,6 +629,7 @@ class Ui_MainWindow(object):
         self.obs2C.setFont(font)
         self.obs2C.setObjectName("obs2C")
         self.obs2C.addItem("")
+        self.obs2C.setItemText(0, "")
         self.obs2C.addItem("")
         self.obs2C.addItem("")
         self.gridLayout_10.addWidget(self.obs2C, 1, 3, 1, 1)
@@ -642,6 +659,7 @@ class Ui_MainWindow(object):
         self.obs3C.setFont(font)
         self.obs3C.setObjectName("obs3C")
         self.obs3C.addItem("")
+        self.obs3C.setItemText(0, "")
         self.obs3C.addItem("")
         self.obs3C.addItem("")
         self.gridLayout_10.addWidget(self.obs3C, 2, 3, 1, 1)
@@ -671,6 +689,7 @@ class Ui_MainWindow(object):
         self.obs4C.setFont(font)
         self.obs4C.setObjectName("obs4C")
         self.obs4C.addItem("")
+        self.obs4C.setItemText(0, "")
         self.obs4C.addItem("")
         self.obs4C.addItem("")
         self.gridLayout_10.addWidget(self.obs4C, 3, 3, 1, 1)
@@ -700,6 +719,7 @@ class Ui_MainWindow(object):
         self.obs5C.setFont(font)
         self.obs5C.setObjectName("obs5C")
         self.obs5C.addItem("")
+        self.obs5C.setItemText(0, "")
         self.obs5C.addItem("")
         self.obs5C.addItem("")
         self.gridLayout_10.addWidget(self.obs5C, 4, 3, 1, 1)
@@ -710,7 +730,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -722,8 +742,8 @@ class Ui_MainWindow(object):
         self.saveB.setText(_translate("MainWindow", "SALVAR"))
         self.reloadB.setText(_translate("MainWindow", "ATUALIZAR"))
         self.cpfL.setText(_translate("MainWindow", "CPF:"))
+        self.contagemL.setText(_translate("MainWindow", "0"))
         self.situacaoL.setText(_translate("MainWindow", "SITUAÇÃO:"))
-        self.situacaoC.setItemText(0, _translate("MainWindow", " "))
         self.situacaoC.setItemText(1, _translate("MainWindow", "CONTRATADO"))
         self.situacaoC.setItemText(2, _translate("MainWindow", "SEM INTERESSE"))
         self.situacaoC.setItemText(3, _translate("MainWindow", "JA INGRESSOU COM TODAS AÇOES"))
@@ -740,7 +760,6 @@ class Ui_MainWindow(object):
         self.situacaoC.setItemText(14, _translate("MainWindow", "NOVO ENDEREÇO INSERIDO"))
         self.dataProximL.setText(_translate("MainWindow", "DATA PROXIMA LIGAÇÃO:"))
         self.respFechL.setText(_translate("MainWindow", "RESPONSÁVEL PELO FECHAMENTO:"))
-        self.respFechC.setItemText(0, _translate("MainWindow", " "))
         self.respFechC.setItemText(1, _translate("MainWindow", "EDUARDO/VISITA"))
         self.respFechC.setItemText(2, _translate("MainWindow", "CAIO/CORRESPONDENCIA"))
         self.respFechC.setItemText(3, _translate("MainWindow", "JESSICA"))
@@ -750,7 +769,6 @@ class Ui_MainWindow(object):
         self.respFechC.setItemText(7, _translate("MainWindow", "MARYANNY SETOR CAPTÇÃO"))
         self.dataLig1L.setText(_translate("MainWindow", "DATA LIGAÇÃO:"))
         self.resp1L.setText(_translate("MainWindow", "RESPONSÁVEL:"))
-        self.resp1C.setItemText(0, _translate("MainWindow", " "))
         self.resp1C.setItemText(1, _translate("MainWindow", "EDUARDO/VISITA"))
         self.resp1C.setItemText(2, _translate("MainWindow", "CAIO/CORRESPONDENCIA"))
         self.resp1C.setItemText(3, _translate("MainWindow", "JESSICA"))
@@ -761,7 +779,6 @@ class Ui_MainWindow(object):
         self.resm1L.setText(_translate("MainWindow", "RESUMO:"))
         self.dataLig2L.setText(_translate("MainWindow", "DATA LIGAÇÃO:"))
         self.resp2L.setText(_translate("MainWindow", "RESPONSÁVEL:"))
-        self.resp2C.setItemText(0, _translate("MainWindow", " "))
         self.resp2C.setItemText(1, _translate("MainWindow", "EDUARDO/VISITA"))
         self.resp2C.setItemText(2, _translate("MainWindow", "CAIO/CORRESPONDENCIA"))
         self.resp2C.setItemText(3, _translate("MainWindow", "JESSICA"))
@@ -773,7 +790,6 @@ class Ui_MainWindow(object):
         self.dataLig3L.setText(_translate("MainWindow", "DATA LIGAÇÃO:"))
         self.resp3L.setText(_translate("MainWindow", "RESPONSÁVEL:"))
         self.resm3L.setText(_translate("MainWindow", "RESUMO:"))
-        self.resp3C.setItemText(0, _translate("MainWindow", " "))
         self.resp3C.setItemText(1, _translate("MainWindow", "EDUARDO/VISITA"))
         self.resp3C.setItemText(2, _translate("MainWindow", "CAIO/CORRESPONDENCIA"))
         self.resp3C.setItemText(3, _translate("MainWindow", "JESSICA"))
@@ -784,7 +800,6 @@ class Ui_MainWindow(object):
         self.dataLig4L.setText(_translate("MainWindow", "DATA LIGAÇÃO:"))
         self.resp4L.setText(_translate("MainWindow", "RESPONSÁVEL:"))
         self.resm4L.setText(_translate("MainWindow", "RESUMO:"))
-        self.resp4C.setItemText(0, _translate("MainWindow", " "))
         self.resp4C.setItemText(1, _translate("MainWindow", "EDUARDO/VISITA"))
         self.resp4C.setItemText(2, _translate("MainWindow", "CAIO/CORRESPONDENCIA"))
         self.resp4C.setItemText(3, _translate("MainWindow", "JESSICA"))
@@ -795,7 +810,6 @@ class Ui_MainWindow(object):
         self.dataLig5L.setText(_translate("MainWindow", "DATA LIGAÇÃO:"))
         self.resp5L.setText(_translate("MainWindow", "RESPONSÁVEL:"))
         self.resm5L.setText(_translate("MainWindow", "RESUMO:"))
-        self.resp5C.setItemText(0, _translate("MainWindow", " "))
         self.resp5C.setItemText(1, _translate("MainWindow", "EDUARDO/VISITA"))
         self.resp5C.setItemText(2, _translate("MainWindow", "CAIO/CORRESPONDENCIA"))
         self.resp5C.setItemText(3, _translate("MainWindow", "JESSICA"))
@@ -816,27 +830,22 @@ class Ui_MainWindow(object):
         self.nomeL.setText(_translate("MainWindow", "NOME:"))
         self.end1L.setText(_translate("MainWindow", "END1:"))
         self.obs1L.setText(_translate("MainWindow", "OBS:"))
-        self.obs1C.setItemText(0, _translate("MainWindow", " "))
         self.obs1C.setItemText(1, _translate("MainWindow", "POSITIVO"))
         self.obs1C.setItemText(2, _translate("MainWindow", "MUDOU"))
         self.end2L.setText(_translate("MainWindow", "END2:"))
         self.obs2L.setText(_translate("MainWindow", "OBS:"))
-        self.obs2C.setItemText(0, _translate("MainWindow", " "))
         self.obs2C.setItemText(1, _translate("MainWindow", "POSITIVO"))
         self.obs2C.setItemText(2, _translate("MainWindow", "MUDOU"))
         self.end3L.setText(_translate("MainWindow", "END3:"))
         self.obs3L.setText(_translate("MainWindow", "OBS:"))
-        self.obs3C.setItemText(0, _translate("MainWindow", " "))
         self.obs3C.setItemText(1, _translate("MainWindow", "POSITIVO"))
         self.obs3C.setItemText(2, _translate("MainWindow", "MUDOU"))
         self.end4L.setText(_translate("MainWindow", "END4:"))
         self.obs4L.setText(_translate("MainWindow", "OBS:"))
-        self.obs4C.setItemText(0, _translate("MainWindow", " "))
         self.obs4C.setItemText(1, _translate("MainWindow", "POSITIVO"))
         self.obs4C.setItemText(2, _translate("MainWindow", "MUDOU"))
         self.end5L.setText(_translate("MainWindow", "END5:"))
         self.obs5L.setText(_translate("MainWindow", "OBS:"))
-        self.obs5C.setItemText(0, _translate("MainWindow", " "))
         self.obs5C.setItemText(1, _translate("MainWindow", "POSITIVO"))
         self.obs5C.setItemText(2, _translate("MainWindow", "MUDOU"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "DADOS SEVIDOR"))
@@ -847,6 +856,7 @@ class Ui_MainWindow(object):
         self.prevB.clicked.connect(self.btnPrev)
         self.saveB.clicked.connect(self.btnSalvar)
         self.reloadB.clicked.connect(self.reload)
+        self.searchB.clicked.connect(self.search)
 
     def fQuery(self):
         connection = pymysql.connect(host='152.70.156.5',
@@ -861,7 +871,6 @@ class Ui_MainWindow(object):
                 cursor.execute(sql)
                 self.result = cursor.fetchall()
                 print(self.result[0])
-
 
     def btnProx(self):
         self.n += 1
@@ -934,6 +943,84 @@ class Ui_MainWindow(object):
     def reload(self):
         self.fQuery()
         self.setData()
+
+    def search(self):
+        nome = self.nomeC.text()
+        id1 = self.idC.text()
+        cpf = self.cpfC.text()
+        sit = self.situacaoC.currentText()
+        dataProx = self.dataProxC.date().toString("dd-MM-yyyy")
+        respFech = self.respFechC.currentText()
+        data1 = self.dataLig1C.date().toString("dd-MM-yyyy")
+        data2 = self.dataLig2C.date().toString("dd-MM-yyyy")
+        data3 = self.dataLig3C.date().toString("dd-MM-yyyy")
+        data4 = self.dataLig4C.date().toString("dd-MM-yyyy")
+        data5 = self.dataLig5C.date().toString("dd-MM-yyyy")
+        resp1 = self.resp1C.currentText()
+        resp2 = self.resp2C.currentText()
+        resp3 = self.resp3C.currentText()
+        resp4 = self.resp4C.currentText()
+        resp5 = self.resp5C.currentText()
+        resm1 = self.resm1C.toPlainText()
+        resm2 = self.resm2C.toPlainText()
+        resm3 = self.resm3C.toPlainText()
+        resm4 = self.resm4C.toPlainText()
+        resm5 = self.resm5C.toPlainText()
+        iben = self.iBenC.text()
+        nben = self.nBenC.text()
+        rg = self.rgC.text()
+        cargo = self.cargoC.text()
+        sexo = self.sexoC.text()
+        dn = self.dnC.text()
+        nmae = self.nMaeC.text()
+        npai = self.nPaiC.text()
+        end1 = self.end1C.text()
+        end2 = self.end2C.text()
+        end3 = self.end3C.text()
+        end4 = self.end4C.text()
+        end5 = self.end5C.text()
+        obs1 = self.obs1C.currentText()
+        obs2 = self.obs2C.currentText()
+        obs3 = self.obs3C.currentText()
+        obs4 = self.obs4C.currentText()
+        obs5 = self.obs5C.currentText()
+
+        ls = [nome, id1, cpf, sit, dataProx, respFech, data1, data2, data3, data4, data5, resp1, resp2, resp3, resp4, resp5, resm1, resm2, resm3, resm4, resm5, iben, nben, rg, cargo, sexo, dn, nmae, npai, end1, end2, end3, end4, end5, obs1, obs2, obs3, obs4, obs5]
+        ns = ["nome", "id", "cpf", "situacao", "dataProx", "respFech", "data1", "data2", "data3", "data4", "data5", "resp1", "resp2", "resp3", "resp4", "resp5", "resm1", "resm2", "resm3", "resm4", "resm5", "dataInic", "numeroBeneficio", "rg", "nomeCargo", "sexo", "dn", "nomeMae", "nomePai", "end1", "end2", "end3", "end4", "end5", "obs1", "obs2", "obs3", "obs4", "obs5"]
+        cn=0
+        sl =[]
+        for i in ls:
+            if "?" in i:
+                sl.append(cn)
+            cn+=1
+        connection = pymysql.connect(host='152.70.156.5',
+                                     user='quinquenio',
+                                     password='gabriel2671',
+                                     database='quinquenio',
+                                     charset='utf8mb4',
+                                     cursorclass=pymysql.cursors.DictCursor)
+        cn=0
+        ss=''
+        dd=''
+        for i in sl:
+            if cn == len(sl)-1:
+                ss+=ns[i]
+                dd+="'"+str(ls[i].replace('?',''))+"'"
+            else:
+                ss+=ns[i]+", "
+                dd+="'"+str(ls[i].replace('?',''))+"', "
+            cn+=1
+        with connection:
+            with connection.cursor() as cursor:
+                sql = "select * from quinquenioData where "+ss+" like "+dd+";"
+                print(sql)
+                cursor.execute(sql)
+                self.result = cursor.fetchall()
+                print(self.result[0])
+        n=0
+        self.setData()
+
+
 
     def setData(self):
         #nome header
@@ -1024,6 +1111,8 @@ class Ui_MainWindow(object):
         self.obs4C.setCurrentText(self.result[self.n]['obs4'])
         #obs5
         self.obs5C.setCurrentText(self.result[self.n]['obs5'])
+        #contagem
+        self.contagemL.setText(str(self.n+1)+" de "+str(len(self.result)))
 
 if __name__ == "__main__":
     import sys
