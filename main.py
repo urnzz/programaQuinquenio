@@ -9,6 +9,7 @@
 
 from PyQt5.QtCore import QCoreApplication
 from PyQt5 import QtCore, QtGui, QtWidgets
+from datetime import datetime
 import pymysql
 
 usuario=''
@@ -937,9 +938,13 @@ class Ui_MainWindow(object):
                 print(sql)
                 cursor.execute(sql)
                 connection.commit()
+                now = datetime.now()
+                dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+                sql = "REPLACE INTO quinquenioLog (user, hour, obs) VALUES ('"+usuario+"', '"+dt_string+"', 'altered "+nome+"');"
+                cursor.execute(sql)
+                connection.commit()
         self.fQuery()
         self.setData()
-        print(usuario)
 
     def reload(self):
         self.fQuery()
@@ -1193,7 +1198,11 @@ class Ui_Form(object):
                             Form.close()
                             global usuario
                             usuario=i['user']
-                            print(usuario)
+                            now = datetime.now()
+                            dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+                            sql = "REPLACE INTO quinquenioLog (user, hour, obs) VALUES ('"+usuario+"', '"+dt_string+"', 'logged');"
+                            cursor.execute(sql)
+                            connection.commit()
                         else:
                             self.senhaC.clear()
                             self.userC.clear()
