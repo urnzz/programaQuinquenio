@@ -10,7 +10,8 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 import pymysql
-
+from pylatex import Document, Section, Subsection, Command
+from pylatex.utils import italic, NoEscape
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
