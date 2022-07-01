@@ -945,82 +945,87 @@ class Ui_MainWindow(object):
         self.setData()
 
     def search(self):
-        nome = self.nomeC.text()
-        id1 = self.idC.text()
-        cpf = self.cpfC.text()
-        sit = self.situacaoC.currentText()
-        dataProx = self.dataProxC.date().toString("dd-MM-yyyy")
-        respFech = self.respFechC.currentText()
-        data1 = self.dataLig1C.date().toString("dd-MM-yyyy")
-        data2 = self.dataLig2C.date().toString("dd-MM-yyyy")
-        data3 = self.dataLig3C.date().toString("dd-MM-yyyy")
-        data4 = self.dataLig4C.date().toString("dd-MM-yyyy")
-        data5 = self.dataLig5C.date().toString("dd-MM-yyyy")
-        resp1 = self.resp1C.currentText()
-        resp2 = self.resp2C.currentText()
-        resp3 = self.resp3C.currentText()
-        resp4 = self.resp4C.currentText()
-        resp5 = self.resp5C.currentText()
-        resm1 = self.resm1C.toPlainText()
-        resm2 = self.resm2C.toPlainText()
-        resm3 = self.resm3C.toPlainText()
-        resm4 = self.resm4C.toPlainText()
-        resm5 = self.resm5C.toPlainText()
-        iben = self.iBenC.text()
-        nben = self.nBenC.text()
-        rg = self.rgC.text()
-        cargo = self.cargoC.text()
-        sexo = self.sexoC.text()
-        dn = self.dnC.text()
-        nmae = self.nMaeC.text()
-        npai = self.nPaiC.text()
-        end1 = self.end1C.text()
-        end2 = self.end2C.text()
-        end3 = self.end3C.text()
-        end4 = self.end4C.text()
-        end5 = self.end5C.text()
-        obs1 = self.obs1C.currentText()
-        obs2 = self.obs2C.currentText()
-        obs3 = self.obs3C.currentText()
-        obs4 = self.obs4C.currentText()
-        obs5 = self.obs5C.currentText()
+        try:
+            nome = self.nomeC.text()
+            id1 = self.idC.text()
+            cpf = self.cpfC.text()
+            sit = self.situacaoC.currentText()
+            dataProx = self.dataProxC.date().toString("dd-MM-yyyy")
+            respFech = self.respFechC.currentText()
+            data1 = self.dataLig1C.date().toString("dd-MM-yyyy")
+            data2 = self.dataLig2C.date().toString("dd-MM-yyyy")
+            data3 = self.dataLig3C.date().toString("dd-MM-yyyy")
+            data4 = self.dataLig4C.date().toString("dd-MM-yyyy")
+            data5 = self.dataLig5C.date().toString("dd-MM-yyyy")
+            resp1 = self.resp1C.currentText()
+            resp2 = self.resp2C.currentText()
+            resp3 = self.resp3C.currentText()
+            resp4 = self.resp4C.currentText()
+            resp5 = self.resp5C.currentText()
+            resm1 = self.resm1C.toPlainText()
+            resm2 = self.resm2C.toPlainText()
+            resm3 = self.resm3C.toPlainText()
+            resm4 = self.resm4C.toPlainText()
+            resm5 = self.resm5C.toPlainText()
+            iben = self.iBenC.text()
+            nben = self.nBenC.text()
+            rg = self.rgC.text()
+            cargo = self.cargoC.text()
+            sexo = self.sexoC.text()
+            dn = self.dnC.text()
+            nmae = self.nMaeC.text()
+            npai = self.nPaiC.text()
+            end1 = self.end1C.text()
+            end2 = self.end2C.text()
+            end3 = self.end3C.text()
+            end4 = self.end4C.text()
+            end5 = self.end5C.text()
+            obs1 = self.obs1C.currentText()
+            obs2 = self.obs2C.currentText()
+            obs3 = self.obs3C.currentText()
+            obs4 = self.obs4C.currentText()
+            obs5 = self.obs5C.currentText()
 
-        ls = [nome, id1, cpf, sit, dataProx, respFech, data1, data2, data3, data4, data5, resp1, resp2, resp3, resp4, resp5, resm1, resm2, resm3, resm4, resm5, iben, nben, rg, cargo, sexo, dn, nmae, npai, end1, end2, end3, end4, end5, obs1, obs2, obs3, obs4, obs5]
-        ns = ["nome", "id", "cpf", "situacao", "dataProx", "respFech", "data1", "data2", "data3", "data4", "data5", "resp1", "resp2", "resp3", "resp4", "resp5", "resm1", "resm2", "resm3", "resm4", "resm5", "dataInic", "numeroBeneficio", "rg", "nomeCargo", "sexo", "dn", "nomeMae", "nomePai", "end1", "end2", "end3", "end4", "end5", "obs1", "obs2", "obs3", "obs4", "obs5"]
-        cn=0
-        sl =[]
-        for i in ls:
-            if "?" in i:
-                sl.append(cn)
-            cn+=1
-        connection = pymysql.connect(host='152.70.156.5',
-                                     user='quinquenio',
-                                     password='gabriel2671',
-                                     database='quinquenio',
-                                     charset='utf8mb4',
-                                     cursorclass=pymysql.cursors.DictCursor)
-        cn=0
-        ss=''
-        dd=''
-        for i in sl:
-            if cn == len(sl)-1:
-                ss+=ns[i]
-                dd+="'"+str(ls[i].replace('?',''))+"'"
-            else:
-                ss+=ns[i]+", "
-                dd+="'"+str(ls[i].replace('?',''))+"', "
-            cn+=1
-        with connection:
-            with connection.cursor() as cursor:
-                sql = "select * from quinquenioData where "+ss+" like "+dd+";"
-                print(sql)
-                cursor.execute(sql)
-                self.result = cursor.fetchall()
-                print(self.result[0])
-        n=0
-        self.setData()
-
-
+            ls = [nome, id1, cpf, sit, dataProx, respFech, data1, data2, data3, data4, data5, resp1, resp2, resp3, resp4, resp5, resm1, resm2, resm3, resm4, resm5, iben, nben, rg, cargo, sexo, dn, nmae, npai, end1, end2, end3, end4, end5, obs1, obs2, obs3, obs4, obs5]
+            ns = ["nome", "id", "cpf", "situacao", "dataProx", "respFech", "data1", "data2", "data3", "data4", "data5", "resp1", "resp2", "resp3", "resp4", "resp5", "resm1", "resm2", "resm3", "resm4", "resm5", "dataInic", "numeroBeneficio", "rg", "nomeCargo", "sexo", "dn", "nomeMae", "nomePai", "end1", "end2", "end3", "end4", "end5", "obs1", "obs2", "obs3", "obs4", "obs5"]
+            cn=0
+            sl =[]
+            for i in ls:
+                if "?" in i:
+                    sl.append(cn)
+                cn+=1
+            connection = pymysql.connect(host='152.70.156.5',
+                                         user='quinquenio',
+                                         password='gabriel2671',
+                                         database='quinquenio',
+                                         charset='utf8mb4',
+                                         cursorclass=pymysql.cursors.DictCursor)
+            cn=0
+            ss=''
+            dd=''
+            for i in sl:
+                if cn == len(sl)-1:
+                    ss+=ns[i]
+                    dd+="'%"+str(ls[i].replace('?',''))+"%'"
+                else:
+                    ss+=ns[i]+", "
+                    dd+="'%"+str(ls[i].replace('?',''))+"'%, "
+                cn+=1
+            with connection:
+                with connection.cursor() as cursor:
+                    sql = "select * from quinquenioData where "+ss+" like "+dd+";"
+                    print(sql)
+                    cursor.execute(sql)
+                    self.result = cursor.fetchall()
+            n=0
+            try:
+                self.setData()
+            except IndexError:
+                self.reload()
+                self.setData()
+        except:
+                self.reload()
+                self.setData()
 
     def setData(self):
         #nome header
