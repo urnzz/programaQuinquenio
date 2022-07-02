@@ -11,13 +11,13 @@ from PyQt5.QtCore import QCoreApplication
 from PyQt5 import QtCore, QtGui, QtWidgets
 from datetime import datetime
 import pymysql
-
+import pdfkit
 usuario=''
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1267, 967)
+        MainWindow.resize(1267, 1003)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
@@ -43,7 +43,17 @@ class Ui_MainWindow(object):
         self.gridLayout.addWidget(self.saveB, 0, 4, 1, 1)
         self.reloadB = QtWidgets.QPushButton(self.frame)
         self.reloadB.setObjectName("reloadB")
-        self.gridLayout.addWidget(self.reloadB, 0, 5, 1, 2)
+        self.gridLayout.addWidget(self.reloadB, 0, 5, 1, 1)
+        self.pdfB = QtWidgets.QPushButton(self.frame)
+        self.pdfB.setObjectName("pdfB")
+        self.gridLayout.addWidget(self.pdfB, 0, 6, 1, 1)
+        self.contagemL = QtWidgets.QLabel(self.frame)
+        font = QtGui.QFont()
+        font.setPointSize(17)
+        self.contagemL.setFont(font)
+        self.contagemL.setAlignment(QtCore.Qt.AlignCenter)
+        self.contagemL.setObjectName("contagemL")
+        self.gridLayout.addWidget(self.contagemL, 0, 7, 1, 1)
         self.idC = QtWidgets.QLineEdit(self.frame)
         self.idC.setMaximumSize(QtCore.QSize(30, 16777215))
         font = QtGui.QFont()
@@ -71,13 +81,6 @@ class Ui_MainWindow(object):
         self.cpfC.setFont(font)
         self.cpfC.setObjectName("cpfC")
         self.gridLayout.addWidget(self.cpfC, 1, 7, 1, 1)
-        self.contagemL = QtWidgets.QLabel(self.frame)
-        font = QtGui.QFont()
-        font.setPointSize(17)
-        self.contagemL.setFont(font)
-        self.contagemL.setAlignment(QtCore.Qt.AlignCenter)
-        self.contagemL.setObjectName("contagemL")
-        self.gridLayout.addWidget(self.contagemL, 0, 7, 1, 1)
         self.verticalLayout.addWidget(self.frame)
         self.frame_2 = QtWidgets.QFrame(self.centralwidget)
         self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -428,6 +431,7 @@ class Ui_MainWindow(object):
         self.gridLayout_11 = QtWidgets.QGridLayout(self.frame_5)
         self.gridLayout_11.setObjectName("gridLayout_11")
         self.attL = QtWidgets.QLabel(self.frame_5)
+        self.attL.setText("")
         self.attL.setAlignment(QtCore.Qt.AlignCenter)
         self.attL.setObjectName("attL")
         self.gridLayout_11.addWidget(self.attL, 0, 0, 1, 1)
@@ -756,8 +760,9 @@ class Ui_MainWindow(object):
         self.nextB.setText(_translate("MainWindow", ">"))
         self.saveB.setText(_translate("MainWindow", "SALVAR"))
         self.reloadB.setText(_translate("MainWindow", "ATUALIZAR"))
-        self.cpfL.setText(_translate("MainWindow", "CPF:"))
+        self.pdfB.setText(_translate("MainWindow", "EXPORTAR PARA PDF"))
         self.contagemL.setText(_translate("MainWindow", "0"))
+        self.cpfL.setText(_translate("MainWindow", "CPF:"))
         self.situacaoL.setText(_translate("MainWindow", "SITUAÇÃO:"))
         self.situacaoC.setItemText(1, _translate("MainWindow", "CONTRATADO"))
         self.situacaoC.setItemText(2, _translate("MainWindow", "SEM INTERESSE"))
@@ -832,7 +837,6 @@ class Ui_MainWindow(object):
         self.resp5C.setItemText(5, _translate("MainWindow", "NAIANA SETOR CAPTAÇÃO"))
         self.resp5C.setItemText(6, _translate("MainWindow", "JEFFERSON SETOR CAPTAÇÃO"))
         self.resp5C.setItemText(7, _translate("MainWindow", "MARYANNY SETOR CAPTÇÃO"))
-        self.attL.setText(_translate("MainWindow", " "))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MainWindow", "DADOS LIGAÇÃO"))
         self.nMaeL.setText(_translate("MainWindow", "NOME MAE:"))
         self.sexoL.setText(_translate("MainWindow", "SEXO:"))
@@ -873,6 +877,7 @@ class Ui_MainWindow(object):
         self.saveB.clicked.connect(self.btnSalvar)
         self.reloadB.clicked.connect(self.reload)
         self.searchB.clicked.connect(self.search)
+        self.pdfB.clicked.connect(self.generatePdf)
 
     def fQuery(self):
         connection = pymysql.connect(host='152.70.156.5',
@@ -1153,7 +1158,45 @@ class Ui_MainWindow(object):
         else:
             self.attL.setText("Sem atualizações recentes")
 
+    def generatePdf(self):
+        s=''
+        for a in self.result:
+            nome = a['nome']
+            cpf = a['cpf']
+            sit = a['situacao']
+            iben = a['dataInic']
+            nben = a['numeroBeneficio']
+            rg = a['rg']
+            cargo = a['nomeCargo']
+            sexo = a['sexo']
+            dn = a['dn']
+            end1 = a['end1']
+            end2 =a['end2']
+            end3 =a['end3']
+            end4 =a['end4']
+            end5 =a['end5']
+            obs1 =a['obs1']
+            obs2 =a['obs2']
+            obs3 =a['obs3']
+            obs4 =a['obs4']
+            obs5 =a['obs5']
 
+            s+= """<body align="center"><h1>QUINQUENIO</h1></br><h2>"""+nome+"""</h2></br>
+            <h3>CPF: """+cpf+"""</h3></br>
+            <h3>Situacao: """+sit+"""</h3></br>
+            <h3>Inicio do beneficio: """+iben+"""</h3><h3>Numero do beneficio: """+nben+"""</h3></br>
+            <h3>RG: """+rg+"""</h3></br>
+            <h3>Cargo: """+cargo+"""</h3></br>
+            <h3>Sexo: """+sexo+"""</h3></br>
+            <h3>Data de Nascimento: """+dn+"""</h3></br>
+            <h3>Endereco 1: """+end1+"""</h3><h3>Observacao: """+obs1+"""</h3></br>
+            <h3>Endereco 2: """+end2+"""</h3><h3>Observacao: """+obs2+"""</h3></br>
+            <h3>Endereco 3: """+end3+"""</h3><h3>Observacao: """+obs3+"""</h3></br>
+            <h3>Endereco 4: """+end4+"""</h3><h3>Observacao: """+obs4+"""</h3></br>
+            <h3>Endereco 5: """+end5+"""</h3><h3>Observacao: """+obs5+"""</h3></br></br></br>
+<p style="page-break-before: always">"""
+
+        pdfkit.from_string(s, output_path = "saida.pdf")
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -1196,6 +1239,7 @@ class Ui_Form(object):
 
 
         self.loginB.clicked.connect(self.authenticate)
+        self.senhaC.setEchoMode(QtWidgets.QLineEdit.Password)
 
     def callMainWindow(self):
         self.window =QtWidgets.QMainWindow()
