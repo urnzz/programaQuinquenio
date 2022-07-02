@@ -17,7 +17,7 @@ usuario=''
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1267, 962)
+        MainWindow.resize(1267, 967)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
@@ -83,14 +83,14 @@ class Ui_MainWindow(object):
         self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_2.setObjectName("frame_2")
-        self.horizontalLayout = QtWidgets.QHBoxLayout(self.frame_2)
-        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.gridLayout_8 = QtWidgets.QGridLayout(self.frame_2)
+        self.gridLayout_8.setObjectName("gridLayout_8")
         self.tabWidget = QtWidgets.QTabWidget(self.frame_2)
         self.tabWidget.setObjectName("tabWidget")
         self.tab = QtWidgets.QWidget()
         self.tab.setObjectName("tab")
-        self.gridLayout_8 = QtWidgets.QGridLayout(self.tab)
-        self.gridLayout_8.setObjectName("gridLayout_8")
+        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.tab)
+        self.verticalLayout_3.setObjectName("verticalLayout_3")
         self.f1 = QtWidgets.QFrame(self.tab)
         self.f1.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.f1.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -158,7 +158,7 @@ class Ui_MainWindow(object):
         self.respFechC.addItem("")
         self.respFechC.addItem("")
         self.gridLayout_2.addWidget(self.respFechC, 1, 3, 1, 2)
-        self.gridLayout_8.addWidget(self.f1, 0, 0, 1, 1)
+        self.verticalLayout_3.addWidget(self.f1)
         self.f2 = QtWidgets.QFrame(self.tab)
         self.f2.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.f2.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -210,7 +210,7 @@ class Ui_MainWindow(object):
         self.resm1C.setFont(font)
         self.resm1C.setObjectName("resm1C")
         self.gridLayout_4.addWidget(self.resm1C, 1, 1, 1, 4)
-        self.gridLayout_8.addWidget(self.f2, 1, 0, 1, 1)
+        self.verticalLayout_3.addWidget(self.f2)
         self.f4 = QtWidgets.QFrame(self.tab)
         self.f4.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.f4.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -262,7 +262,7 @@ class Ui_MainWindow(object):
         self.resm2C.setFont(font)
         self.resm2C.setObjectName("resm2C")
         self.gridLayout_3.addWidget(self.resm2C, 1, 1, 1, 4)
-        self.gridLayout_8.addWidget(self.f4, 2, 0, 1, 1)
+        self.verticalLayout_3.addWidget(self.f4)
         self.f3 = QtWidgets.QFrame(self.tab)
         self.f3.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.f3.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -314,7 +314,7 @@ class Ui_MainWindow(object):
         self.resp3C.addItem("")
         self.resp3C.addItem("")
         self.gridLayout_6.addWidget(self.resp3C, 0, 4, 1, 1)
-        self.gridLayout_8.addWidget(self.f3, 3, 0, 1, 1)
+        self.verticalLayout_3.addWidget(self.f3)
         self.f5 = QtWidgets.QFrame(self.tab)
         self.f5.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.f5.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -366,7 +366,7 @@ class Ui_MainWindow(object):
         self.resp4C.addItem("")
         self.resp4C.addItem("")
         self.gridLayout_5.addWidget(self.resp4C, 0, 4, 1, 1)
-        self.gridLayout_8.addWidget(self.f5, 4, 0, 1, 1)
+        self.verticalLayout_3.addWidget(self.f5)
         self.f6 = QtWidgets.QFrame(self.tab)
         self.f6.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.f6.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -418,7 +418,20 @@ class Ui_MainWindow(object):
         self.resp5C.addItem("")
         self.resp5C.addItem("")
         self.gridLayout_7.addWidget(self.resp5C, 0, 4, 1, 1)
-        self.gridLayout_8.addWidget(self.f6, 5, 0, 1, 1)
+        self.verticalLayout_3.addWidget(self.f6)
+        self.frame_5 = QtWidgets.QFrame(self.tab)
+        self.frame_5.setMinimumSize(QtCore.QSize(0, 30))
+        self.frame_5.setMaximumSize(QtCore.QSize(16777215, 30))
+        self.frame_5.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_5.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_5.setObjectName("frame_5")
+        self.gridLayout_11 = QtWidgets.QGridLayout(self.frame_5)
+        self.gridLayout_11.setObjectName("gridLayout_11")
+        self.attL = QtWidgets.QLabel(self.frame_5)
+        self.attL.setAlignment(QtCore.Qt.AlignCenter)
+        self.attL.setObjectName("attL")
+        self.gridLayout_11.addWidget(self.attL, 0, 0, 1, 1)
+        self.verticalLayout_3.addWidget(self.frame_5)
         self.tabWidget.addTab(self.tab, "")
         self.tab_2 = QtWidgets.QWidget()
         self.tab_2.setObjectName("tab_2")
@@ -727,12 +740,12 @@ class Ui_MainWindow(object):
         self.gridLayout_10.addWidget(self.obs5C, 4, 3, 1, 1)
         self.verticalLayout_2.addWidget(self.frame_4)
         self.tabWidget.addTab(self.tab_2, "")
-        self.horizontalLayout.addWidget(self.tabWidget)
+        self.gridLayout_8.addWidget(self.tabWidget, 0, 0, 1, 1)
         self.verticalLayout.addWidget(self.frame_2)
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -819,6 +832,7 @@ class Ui_MainWindow(object):
         self.resp5C.setItemText(5, _translate("MainWindow", "NAIANA SETOR CAPTAÇÃO"))
         self.resp5C.setItemText(6, _translate("MainWindow", "JEFFERSON SETOR CAPTAÇÃO"))
         self.resp5C.setItemText(7, _translate("MainWindow", "MARYANNY SETOR CAPTÇÃO"))
+        self.attL.setText(_translate("MainWindow", " "))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MainWindow", "DADOS LIGAÇÃO"))
         self.nMaeL.setText(_translate("MainWindow", "NOME MAE:"))
         self.sexoL.setText(_translate("MainWindow", "SEXO:"))
@@ -872,6 +886,9 @@ class Ui_MainWindow(object):
                 sql = "SELECT * from quinquenioData"
                 cursor.execute(sql)
                 self.result = cursor.fetchall()
+                sql = "SELECT * from quinquenioLog;"
+                cursor.execute(sql)
+                self.r1 = cursor.fetchall()
 
     def btnProx(self):
         self.n += 1
@@ -1124,6 +1141,18 @@ class Ui_MainWindow(object):
         self.obs5C.setCurrentText(self.result[self.n]['obs5'])
         #contagem
         self.contagemL.setText(str(self.n+1)+" de "+str(len(self.result)))
+        #ultima att
+        ll=[]
+        ccc=0
+        for i in self.r1:
+            if self.nomeC.text() in i['obs']:
+                ll.append(self.r1[ccc])
+                ccc+=1
+        if ll:
+            self.attL.setText("Ultima modificação em "+ll[len(ll)-1]['hour']+" por "+ll[len(ll)-1]['user'])
+        else:
+            self.attL.setText("Sem atualizações recentes")
+
 
 
 class Ui_Form(object):
