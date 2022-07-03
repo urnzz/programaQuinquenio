@@ -290,6 +290,9 @@
                   <pointsize>17</pointsize>
                  </font>
                 </property>
+                <property name="displayFormat">
+                 <string>dd/MM/yyyy</string>
+                </property>
                </widget>
               </item>
               <item row="1" column="0" colspan="3">
@@ -383,6 +386,9 @@
                  <font>
                   <pointsize>17</pointsize>
                  </font>
+                </property>
+                <property name="displayFormat">
+                 <string>dd/MM/yyyy</string>
                 </property>
                </widget>
               </item>
@@ -499,6 +505,9 @@
                   <pointsize>17</pointsize>
                  </font>
                 </property>
+                <property name="displayFormat">
+                 <string>dd/MM/yyyy</string>
+                </property>
                </widget>
               </item>
               <item row="0" column="3">
@@ -613,6 +622,9 @@
                  <font>
                   <pointsize>17</pointsize>
                  </font>
+                </property>
+                <property name="displayFormat">
+                 <string>dd/MM/yyyy</string>
                 </property>
                </widget>
               </item>
@@ -729,6 +741,9 @@
                   <pointsize>17</pointsize>
                  </font>
                 </property>
+                <property name="displayFormat">
+                 <string>dd/MM/yyyy</string>
+                </property>
                </widget>
               </item>
               <item row="0" column="3">
@@ -843,6 +858,9 @@
                  <font>
                   <pointsize>17</pointsize>
                  </font>
+                </property>
+                <property name="displayFormat">
+                 <string>dd/MM/yyyy</string>
                 </property>
                </widget>
               </item>

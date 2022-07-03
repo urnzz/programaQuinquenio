@@ -13,6 +13,117 @@ from datetime import datetime
 import pymysql
 import pdfkit
 usuario=''
+listD=[]
+class Ui_Dialog(object):
+    def setupUi(self, Dialog):
+        Dialog.setObjectName("Dialog")
+        Dialog.resize(640, 480)
+        self.gridLayout = QtWidgets.QGridLayout(Dialog)
+        self.gridLayout.setObjectName("gridLayout")
+        self.frame = QtWidgets.QFrame(Dialog)
+        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame.setObjectName("frame")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.frame)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.frame_2 = QtWidgets.QFrame(self.frame)
+        self.frame_2.setMinimumSize(QtCore.QSize(0, 40))
+        self.frame_2.setMaximumSize(QtCore.QSize(16777215, 40))
+        self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_2.setObjectName("frame_2")
+        self.horizontalLayout = QtWidgets.QHBoxLayout(self.frame_2)
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.nomeAgendaL = QtWidgets.QLabel(self.frame_2)
+        font = QtGui.QFont()
+        font.setPointSize(17)
+        self.nomeAgendaL.setFont(font)
+        self.nomeAgendaL.setAlignment(QtCore.Qt.AlignCenter)
+        self.nomeAgendaL.setObjectName("nomeAgendaL")
+        self.horizontalLayout.addWidget(self.nomeAgendaL)
+        self.dataAgendaL = QtWidgets.QLabel(self.frame_2)
+        font = QtGui.QFont()
+        font.setPointSize(17)
+        self.dataAgendaL.setFont(font)
+        self.dataAgendaL.setAlignment(QtCore.Qt.AlignCenter)
+        self.dataAgendaL.setObjectName("dataAgendaL")
+        self.horizontalLayout.addWidget(self.dataAgendaL)
+        self.verticalLayout.addWidget(self.frame_2)
+        self.frame_3 = QtWidgets.QFrame(self.frame)
+        self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_3.setObjectName("frame_3")
+        self.gridLayout_2 = QtWidgets.QGridLayout(self.frame_3)
+        self.gridLayout_2.setObjectName("gridLayout_2")
+        self.verticalLayout.addWidget(self.frame_3)
+        self.gridLayout.addWidget(self.frame, 0, 0, 1, 1)
+
+        self.retranslateUi(Dialog)
+        QtCore.QMetaObject.connectSlotsByName(Dialog)
+
+    def retranslateUi(self, Dialog):
+        _translate = QtCore.QCoreApplication.translate
+        Dialog.setWindowTitle(_translate("Dialog", "Agenda"))
+        self.nomeAgendaL.setText(_translate("Dialog", "NOME"))
+        self.dataAgendaL.setText(_translate("Dialog", "DATA"))
+
+    def creatItens(self):
+        connection = pymysql.connect(host='152.70.156.5',
+                                     user='quinquenio',
+                                     password='gabriel2671',
+                                     database='quinquenio',
+                                     charset='utf8mb4',
+                                     cursorclass=pymysql.cursors.DictCursor)
+        with connection:
+            with connection.cursor() as cursor:
+                now = datetime.now()
+                dt_string = now.strftime("%d-%m-%Y")
+                sql = "SELECT nome from quinquenioData where dataProx like '%"+dt_string+"%';"
+                cursor.execute(sql)
+                self.r2 = cursor.fetchall()
+        if self.r2:
+            odd=0
+            for i in self.r2:
+                self.ddd={'nomeClienteC':'', 'clienteB':'', 'nome':i['nome']}
+                self.ddd['nomeClienteC'] = QtWidgets.QLineEdit(self.frame_3)
+                font = QtGui.QFont()
+                font.setPointSize(17)
+                self.ddd['nomeClienteC'].setFont(font)
+                self.ddd['nomeClienteC'].setObjectName("nomeCliente"+str(odd)+"C")
+                self.ddd['nomeClienteC'].setText(i['nome'])
+                self.gridLayout_2.addWidget(self.ddd['nomeClienteC'], 0, 0, 1, 1)
+                self.ddd['clienteB'] = QtWidgets.QPushButton(self.frame_3)
+                font = QtGui.QFont()
+                font.setPointSize(9)
+                self.ddd['clienteB'].setFont(font)
+                self.ddd['clienteB'].setObjectName("cliente"+str(odd)+"B")
+                self.ddd['clienteB'].setText("ir")
+                self.gridLayout_2.addWidget(self.ddd['clienteB'], 0, 1, 1, 1)
+                listD.append(self.ddd)
+            for i in listD:
+                i['nomeClienteC'] = QtWidgets.QLineEdit(self.frame_3)
+                font = QtGui.QFont()
+                font.setPointSize(17)
+                i['nomeClienteC'].setFont(font)
+                i['nomeClienteC'].setObjectName("nomeCliente"+str(odd)+"C")
+                i['nomeClienteC'].setText(i['nome'])
+                self.gridLayout_2.addWidget(i['nomeClienteC'], 0, 0, 1, 1)
+                i['clienteB'] = QtWidgets.QPushButton(self.frame_3)
+                font = QtGui.QFont()
+                font.setPointSize(9)
+                i['clienteB'].setFont(font)
+                i['clienteB'].setObjectName("cliente"+str(odd)+"B")
+                i['clienteB'].setText("ir")
+                self.gridLayout_2.addWidget(i['clienteB'], 0, 1, 1, 1)
+                listD.append(self.ddd)
+                odd+=1
+
+
+    def initAgenda(self):
+        self.nomeAgendaL.setText(usuario)
+        now = datetime.now()
+        dt_string = now.strftime("%d/%m/%Y")
+        self.dataAgendaL.setText(dt_string)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -779,6 +890,7 @@ class Ui_MainWindow(object):
         self.situacaoC.setItemText(13, _translate("MainWindow", "NÃO TEM HERDEIRO VIVO"))
         self.situacaoC.setItemText(14, _translate("MainWindow", "NOVO ENDEREÇO INSERIDO"))
         self.dataProximL.setText(_translate("MainWindow", "DATA PROXIMA LIGAÇÃO:"))
+        self.dataProxC.setDisplayFormat(_translate("MainWindow", "dd/MM/yyyy"))
         self.respFechL.setText(_translate("MainWindow", "RESPONSÁVEL PELO FECHAMENTO:"))
         self.respFechC.setItemText(1, _translate("MainWindow", "EDUARDO/VISITA"))
         self.respFechC.setItemText(2, _translate("MainWindow", "CAIO/CORRESPONDENCIA"))
@@ -788,6 +900,7 @@ class Ui_MainWindow(object):
         self.respFechC.setItemText(6, _translate("MainWindow", "JEFFERSON SETOR CAPTAÇÃO"))
         self.respFechC.setItemText(7, _translate("MainWindow", "MARYANNY SETOR CAPTÇÃO"))
         self.dataLig1L.setText(_translate("MainWindow", "DATA LIGAÇÃO:"))
+        self.dataLig1C.setDisplayFormat(_translate("MainWindow", "dd/MM/yyyy"))
         self.resp1L.setText(_translate("MainWindow", "RESPONSÁVEL:"))
         self.resp1C.setItemText(1, _translate("MainWindow", "EDUARDO/VISITA"))
         self.resp1C.setItemText(2, _translate("MainWindow", "CAIO/CORRESPONDENCIA"))
@@ -798,6 +911,7 @@ class Ui_MainWindow(object):
         self.resp1C.setItemText(7, _translate("MainWindow", "MARYANNY SETOR CAPTÇÃO"))
         self.resm1L.setText(_translate("MainWindow", "RESUMO:"))
         self.dataLig2L.setText(_translate("MainWindow", "DATA LIGAÇÃO:"))
+        self.dataLig2C.setDisplayFormat(_translate("MainWindow", "dd/MM/yyyy"))
         self.resp2L.setText(_translate("MainWindow", "RESPONSÁVEL:"))
         self.resp2C.setItemText(1, _translate("MainWindow", "EDUARDO/VISITA"))
         self.resp2C.setItemText(2, _translate("MainWindow", "CAIO/CORRESPONDENCIA"))
@@ -808,6 +922,7 @@ class Ui_MainWindow(object):
         self.resp2C.setItemText(7, _translate("MainWindow", "MARYANNY SETOR CAPTÇÃO"))
         self.resm2L.setText(_translate("MainWindow", "RESUMO:"))
         self.dataLig3L.setText(_translate("MainWindow", "DATA LIGAÇÃO:"))
+        self.dataLig3C.setDisplayFormat(_translate("MainWindow", "dd/MM/yyyy"))
         self.resp3L.setText(_translate("MainWindow", "RESPONSÁVEL:"))
         self.resm3L.setText(_translate("MainWindow", "RESUMO:"))
         self.resp3C.setItemText(1, _translate("MainWindow", "EDUARDO/VISITA"))
@@ -818,6 +933,7 @@ class Ui_MainWindow(object):
         self.resp3C.setItemText(6, _translate("MainWindow", "JEFFERSON SETOR CAPTAÇÃO"))
         self.resp3C.setItemText(7, _translate("MainWindow", "MARYANNY SETOR CAPTÇÃO"))
         self.dataLig4L.setText(_translate("MainWindow", "DATA LIGAÇÃO:"))
+        self.dataLig4C.setDisplayFormat(_translate("MainWindow", "dd/MM/yyyy"))
         self.resp4L.setText(_translate("MainWindow", "RESPONSÁVEL:"))
         self.resm4L.setText(_translate("MainWindow", "RESUMO:"))
         self.resp4C.setItemText(1, _translate("MainWindow", "EDUARDO/VISITA"))
@@ -828,6 +944,7 @@ class Ui_MainWindow(object):
         self.resp4C.setItemText(6, _translate("MainWindow", "JEFFERSON SETOR CAPTAÇÃO"))
         self.resp4C.setItemText(7, _translate("MainWindow", "MARYANNY SETOR CAPTÇÃO"))
         self.dataLig5L.setText(_translate("MainWindow", "DATA LIGAÇÃO:"))
+        self.dataLig5C.setDisplayFormat(_translate("MainWindow", "dd/MM/yyyy"))
         self.resp5L.setText(_translate("MainWindow", "RESPONSÁVEL:"))
         self.resm5L.setText(_translate("MainWindow", "RESUMO:"))
         self.resp5C.setItemText(1, _translate("MainWindow", "EDUARDO/VISITA"))
@@ -1250,6 +1367,15 @@ class Ui_Form(object):
         self.ui.setData()
         self.window.show()
 
+    def callAgenda(self):
+        self.dialog = QtWidgets.QDialog()
+        self.ui1 = Ui_Dialog()
+        self.ui1.setupUi(self.dialog)
+        global usuario
+        self.ui1.initAgenda()
+        self.ui1.creatItens()
+        self.dialog.show()
+
     def authenticate(self):
         self.u = self.userC.text()
         self.p = self.senhaC.text()
@@ -1267,7 +1393,6 @@ class Ui_Form(object):
                 for i in self.result1:
                     if i['user'] == self.u:
                         if i['pass'] == self.p:
-                            self.callMainWindow()
                             Form.close()
                             global usuario
                             usuario=i['user']
@@ -1276,6 +1401,8 @@ class Ui_Form(object):
                             sql = "REPLACE INTO quinquenioLog (user, hour, obs) VALUES ('"+usuario+"', '"+dt_string+"', 'logged');"
                             cursor.execute(sql)
                             connection.commit()
+                            self.callMainWindow()
+                            self.callAgenda()
                         else:
                             self.senhaC.clear()
                             self.userC.clear()
