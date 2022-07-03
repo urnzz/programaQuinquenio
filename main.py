@@ -13,7 +13,6 @@ from datetime import datetime
 import pymysql
 import pdfkit
 usuario=''
-listD=[]
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
@@ -83,39 +82,25 @@ class Ui_Dialog(object):
                 self.r2 = cursor.fetchall()
         if self.r2:
             odd=0
+            self.listC=[]
+            self.listB=[]
             for i in self.r2:
-                self.ddd={'nomeClienteC':'', 'clienteB':'', 'nome':i['nome']}
-                self.ddd['nomeClienteC'] = QtWidgets.QLineEdit(self.frame_3)
+                nomeClienteC = QtWidgets.QLineEdit(self.frame_3)
                 font = QtGui.QFont()
                 font.setPointSize(17)
-                self.ddd['nomeClienteC'].setFont(font)
-                self.ddd['nomeClienteC'].setObjectName("nomeCliente"+str(odd)+"C")
-                self.ddd['nomeClienteC'].setText(i['nome'])
-                self.gridLayout_2.addWidget(self.ddd['nomeClienteC'], 0, 0, 1, 1)
-                self.ddd['clienteB'] = QtWidgets.QPushButton(self.frame_3)
+                nomeClienteC.setFont(font)
+                nomeClienteC.setObjectName("nomeCliente"+str(odd)+"C")
+                nomeClienteC.setText(i['nome'])
+                self.gridLayout_2.addWidget(nomeClienteC, odd+1, 0, 1, 1)
+                self.listC.append(nomeClienteC)
+                clienteB = QtWidgets.QPushButton(self.frame_3)
                 font = QtGui.QFont()
                 font.setPointSize(9)
-                self.ddd['clienteB'].setFont(font)
-                self.ddd['clienteB'].setObjectName("cliente"+str(odd)+"B")
-                self.ddd['clienteB'].setText("ir")
-                self.gridLayout_2.addWidget(self.ddd['clienteB'], 0, 1, 1, 1)
-                listD.append(self.ddd)
-            for i in listD:
-                i['nomeClienteC'] = QtWidgets.QLineEdit(self.frame_3)
-                font = QtGui.QFont()
-                font.setPointSize(17)
-                i['nomeClienteC'].setFont(font)
-                i['nomeClienteC'].setObjectName("nomeCliente"+str(odd)+"C")
-                i['nomeClienteC'].setText(i['nome'])
-                self.gridLayout_2.addWidget(i['nomeClienteC'], 0, 0, 1, 1)
-                i['clienteB'] = QtWidgets.QPushButton(self.frame_3)
-                font = QtGui.QFont()
-                font.setPointSize(9)
-                i['clienteB'].setFont(font)
-                i['clienteB'].setObjectName("cliente"+str(odd)+"B")
-                i['clienteB'].setText("ir")
-                self.gridLayout_2.addWidget(i['clienteB'], 0, 1, 1, 1)
-                listD.append(self.ddd)
+                clienteB.setFont(font)
+                clienteB.setObjectName("cliente"+str(odd)+"B")
+                clienteB.setText("ir")
+                self.gridLayout_2.addWidget(clienteB, odd+1, 1, 1, 1)
+                self.listB.append(clienteB)
                 odd+=1
 
 
