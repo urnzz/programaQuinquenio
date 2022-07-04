@@ -1167,25 +1167,47 @@ class Ui_MainWindow(object):
         #situação
         self.situacaoC.setCurrentText(self.result[self.n]['situacao'])
         #data prox lig
-        qdate = QtCore.QDate.fromString(self.result[self.n]['dataProx'], "dd-MM-yyyy")
-        self.dataProxC.setDate(qdate)
+        if self.result[self.n]['dataProx']:
+            self.dataProxC.setDate(QtCore.QDate.fromString(self.result[self.n]['dataProx'], "dd-MM-yyyy"))
+        else:
+            self.dataProxC.setDate(QtCore.QDate.fromString("01-01-2000", "dd-MM-yyyy"))
         #resp fechamento
         self.respFechC.setCurrentText(self.result[self.n]['respFech'])
         #data lig1
-        qdate = QtCore.QDate.fromString(self.result[self.n]['data1'], "dd-MM-yyyy")
-        self.dataLig1C.setDate(qdate)
+        if self.result[self.n]['data1']:
+            qdate = QtCore.QDate.fromString(self.result[self.n]['data1'], "dd-MM-yyyy")
+            self.dataLig1C.setDate(qdate)
+        else:
+            qdate = QtCore.QDate.fromString("01-01-2000", "dd-MM-yyyy")
+            self.dataLig1C.setDate(qdate)
         #data lig2
-        qdate = QtCore.QDate.fromString(self.result[self.n]['data2'], "dd-MM-yyyy")
-        self.dataLig2C.setDate(qdate)
+        if self.result[self.n]['data2']:
+            qdate = QtCore.QDate.fromString(self.result[self.n]['data2'], "dd-MM-yyyy")
+            self.dataLig2C.setDate(qdate)
+        else:
+            qdate = QtCore.QDate.fromString("01-01-2000", "dd-MM-yyyy")
+            self.dataLig2C.setDate(qdate)
         #data lig3
-        qdate = QtCore.QDate.fromString(self.result[self.n]['data3'], "dd-MM-yyyy")
-        self.dataLig3C.setDate(qdate)
+        if self.result[self.n]['data3']:
+            qdate = QtCore.QDate.fromString(self.result[self.n]['data3'], "dd-MM-yyyy")
+            self.dataLig3C.setDate(qdate)
+        else:
+            qdate = QtCore.QDate.fromString("01-01-2000", "dd-MM-yyyy")
+            self.dataLig3C.setDate(qdate)
         #data lig4
-        qdate = QtCore.QDate.fromString(self.result[self.n]['data4'], "dd-MM-yyyy")
-        self.dataLig4C.setDate(qdate)
+        if self.result[self.n]['data4']:
+            qdate = QtCore.QDate.fromString(self.result[self.n]['data4'], "dd-MM-yyyy")
+            self.dataLig4C.setDate(qdate)
+        else:
+            qdate = QtCore.QDate.fromString("01-01-2000", "dd-MM-yyyy")
+            self.dataLig4C.setDate(qdate)
         #data lig5
-        qdate = QtCore.QDate.fromString(self.result[self.n]['data5'], "dd-MM-yyyy")
-        self.dataLig5C.setDate(qdate)
+        if self.result[self.n]['data5']:
+            qdate = QtCore.QDate.fromString(self.result[self.n]['data5'], "dd-MM-yyyy")
+            self.dataLig5C.setDate(qdate)
+        else:
+            qdate = QtCore.QDate.fromString("01-01-2000", "dd-MM-yyyy")
+            self.dataLig5C.setDate(qdate)
         #resp1
         self.resp1C.setCurrentText(self.result[self.n]['resp1'])
         #resp2
