@@ -115,12 +115,11 @@ class Ui_Dialog(object):
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1267, 1003)
+        MainWindow.resize(1548, 1003)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
-        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout.setObjectName("verticalLayout")
+        self.gridLayout_12 = QtWidgets.QGridLayout(self.centralwidget)
+        self.gridLayout_12.setObjectName("gridLayout_12")
         self.frame = QtWidgets.QFrame(self.centralwidget)
         self.frame.setMaximumSize(QtCore.QSize(16777215, 130))
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -181,7 +180,45 @@ class Ui_MainWindow(object):
         self.cpfC.setFont(font)
         self.cpfC.setObjectName("cpfC")
         self.gridLayout.addWidget(self.cpfC, 1, 7, 1, 1)
-        self.verticalLayout.addWidget(self.frame)
+        self.gridLayout_12.addWidget(self.frame, 0, 0, 1, 1)
+        self.frame_6 = QtWidgets.QFrame(self.centralwidget)
+        self.frame_6.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_6.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_6.setObjectName("frame_6")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.frame_6)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.tel1C = QtWidgets.QLineEdit(self.frame_6)
+        self.tel1C.setObjectName("tel1C")
+        self.verticalLayout.addWidget(self.tel1C)
+        self.tel2C = QtWidgets.QLineEdit(self.frame_6)
+        self.tel2C.setObjectName("tel2C")
+        self.verticalLayout.addWidget(self.tel2C)
+        self.tel3C = QtWidgets.QLineEdit(self.frame_6)
+        self.tel3C.setObjectName("tel3C")
+        self.verticalLayout.addWidget(self.tel3C)
+        self.tel4C = QtWidgets.QLineEdit(self.frame_6)
+        self.tel4C.setObjectName("tel4C")
+        self.verticalLayout.addWidget(self.tel4C)
+        self.tel5C = QtWidgets.QLineEdit(self.frame_6)
+        self.tel5C.setObjectName("tel5C")
+        self.verticalLayout.addWidget(self.tel5C)
+        self.tel6C = QtWidgets.QLineEdit(self.frame_6)
+        self.tel6C.setObjectName("tel6C")
+        self.verticalLayout.addWidget(self.tel6C)
+        self.tel7C = QtWidgets.QLineEdit(self.frame_6)
+        self.tel7C.setObjectName("tel7C")
+        self.verticalLayout.addWidget(self.tel7C)
+        self.tel8C = QtWidgets.QLineEdit(self.frame_6)
+        self.tel8C.setObjectName("tel8C")
+        self.verticalLayout.addWidget(self.tel8C)
+        self.tel9C = QtWidgets.QLineEdit(self.frame_6)
+        self.tel9C.setObjectName("tel9C")
+        self.verticalLayout.addWidget(self.tel9C)
+        self.tel10C = QtWidgets.QLineEdit(self.frame_6)
+        self.tel10C.setObjectName("tel10C")
+        self.verticalLayout.addWidget(self.tel10C)
+        self.gridLayout_12.addWidget(self.frame_6, 0, 1, 2, 1)
         self.frame_2 = QtWidgets.QFrame(self.centralwidget)
         self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -856,7 +893,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_2.addWidget(self.frame_4)
         self.tabWidget.addTab(self.tab_2, "")
         self.gridLayout_8.addWidget(self.tabWidget, 0, 0, 1, 1)
-        self.verticalLayout.addWidget(self.frame_2)
+        self.gridLayout_12.addWidget(self.frame_2, 1, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -987,6 +1024,7 @@ class Ui_MainWindow(object):
         self.obs5C.setItemText(2, _translate("MainWindow", "MUDOU"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "DADOS SEVIDOR"))
 
+
     def init(self):
         self.n=0
         self.nextB.clicked.connect(self.btnProx)
@@ -1060,10 +1098,20 @@ class Ui_MainWindow(object):
         obs3 = self.obs3C.currentText()
         obs4 = self.obs4C.currentText()
         obs5 = self.obs5C.currentText()
+        tel1 = self.tel1C.text()
+        tel2 = self.tel2C.text()
+        tel3 = self.tel3C.text()
+        tel4 = self.tel4C.text()
+        tel5 = self.tel5C.text()
+        tel6 = self.tel6C.text()
+        tel7 = self.tel7C.text()
+        tel8 = self.tel8C.text()
+        tel9 = self.tel9C.text()
+        tel10 = self.tel10C.text()
 
-        paste = "('"+nome+"', '"+id1+"', '"+cpf+"', '"+sit+"', '"+dataProx+"', '"+respFech+"', '"+data1+"', '"+data2+"', '"+data3+"', '"+data4+"', '"+data5+"', '"+resp1+"', '"+resp2+"', '"+resp3+"', '"+resp4+"', '"+resp5+"', '"+resm1+"', '"+resm2+"', '"+resm3+"', '"+resm4+"', '"+resm5+"', '"+iben+"', '"+nben+"', '"+rg+"', '"+cargo+"', '"+sexo+"', '"+dn+"', '"+nmae+"', '"+npai+"', '"+end1+"', '"+end2+"', '"+end3+"', '"+end4+"', '"+end5+"', '"+obs1+"', '"+obs2+"', '"+obs3+"', '"+obs4+"', '"+obs5+"')"
+        paste = "('"+nome+"', '"+id1+"', '"+cpf+"', '"+sit+"', '"+dataProx+"', '"+respFech+"', '"+data1+"', '"+data2+"', '"+data3+"', '"+data4+"', '"+data5+"', '"+resp1+"', '"+resp2+"', '"+resp3+"', '"+resp4+"', '"+resp5+"', '"+resm1+"', '"+resm2+"', '"+resm3+"', '"+resm4+"', '"+resm5+"', '"+iben+"', '"+nben+"', '"+rg+"', '"+cargo+"', '"+sexo+"', '"+dn+"', '"+nmae+"', '"+npai+"', '"+end1+"', '"+end2+"', '"+end3+"', '"+end4+"', '"+end5+"', '"+obs1+"', '"+obs2+"', '"+obs3+"', '"+obs4+"', '"+obs5+"', '"+tel1+"', '"+tel2+"', '"+tel3+"', '"+tel4+"', '"+tel5+"', '"+tel6+"', '"+tel7+"', '"+tel8+"', '"+tel9+"', '"+tel10+"')"
 
-        columns = "(nome, id, cpf, situacao, dataProx, respFech, data1, data2, data3, data4, data5, resp1, resp2, resp3, resp4, resp5, resm1, resm2, resm3, resm4, resm5, dataInic, numeroBeneficio, rg, nomeCargo, sexo, dn, nomeMae, nomePai, end1, end2, end3, end4, end5, obs1, obs2, obs3, obs4, obs5)"
+        columns = "(nome, id, cpf, situacao, dataProx, respFech, data1, data2, data3, data4, data5, resp1, resp2, resp3, resp4, resp5, resm1, resm2, resm3, resm4, resm5, dataInic, numeroBeneficio, rg, nomeCargo, sexo, dn, nomeMae, nomePai, end1, end2, end3, end4, end5, obs1, obs2, obs3, obs4, obs5, tel1, tel2, tel3, tel4, tel5, tel6, tel7, tel8, tel9, tel10)"
 
         connection = pymysql.connect(host='152.70.156.5',
                                      user='quinquenio',
@@ -1291,13 +1339,31 @@ class Ui_MainWindow(object):
                 ll.append(i)
         if ll:
             for i in ll:
-                print(i)
                 if ccc==len(ll)-1:
-                    print(ccc)
                     self.attL.setText("Ultima modificação em "+i['hour']+" por "+i['user'])
                 ccc+=1
         else:
             self.attL.setText("Sem atualizações recentes")
+        #tel1
+        self.tel1C.setText(self.result[self.n]['tel1'])
+        #tel2
+        self.tel2C.setText(self.result[self.n]['tel2'])
+        #tel3
+        self.tel3C.setText(self.result[self.n]['tel3'])
+        #tel4
+        self.tel4C.setText(self.result[self.n]['tel4'])
+        #tel5
+        self.tel5C.setText(self.result[self.n]['tel5'])
+        #tel6
+        self.tel6C.setText(self.result[self.n]['tel6'])
+        #tel7
+        self.tel7C.setText(self.result[self.n]['tel7'])
+        #tel8
+        self.tel8C.setText(self.result[self.n]['tel8'])
+        #tel9
+        self.tel9C.setText(self.result[self.n]['tel9'])
+        #tel10
+        self.tel10C.setText(self.result[self.n]['tel10'])
 
     def generatePdf(self):
         s=''
