@@ -1008,7 +1008,7 @@ class Ui_MainWindow(object):
                 sql = "SELECT * from quinquenioData"
                 cursor.execute(sql)
                 self.result = cursor.fetchall()
-                sql = "SELECT * from quinquenioLog;"
+                sql = "SELECT * from quinquenioLog where obs like '%altered%';"
                 cursor.execute(sql)
                 self.r1 = cursor.fetchall()
 
@@ -1074,7 +1074,6 @@ class Ui_MainWindow(object):
         with connection:
             with connection.cursor() as cursor:
                 sql = "REPLACE INTO quinquenioData "+columns+" VALUES "+paste
-                print(sql)
                 cursor.execute(sql)
                 connection.commit()
                 now = datetime.now()
@@ -1159,7 +1158,6 @@ class Ui_MainWindow(object):
             with connection:
                 with connection.cursor() as cursor:
                     sql = "select * from quinquenioData where "+ss+" like "+dd+";"
-                    print(sql)
                     cursor.execute(sql)
                     self.result = cursor.fetchall()
             n=0
@@ -1289,11 +1287,15 @@ class Ui_MainWindow(object):
         ll=[]
         ccc=0
         for i in self.r1:
-            if self.nomeC.text() in i['obs']:
-                ll.append(self.r1[ccc])
-                ccc+=1
+            if self.result[self.n]['nome'] in i['obs']:
+                ll.append(i)
         if ll:
-            self.attL.setText("Ultima modificação em "+ll[len(ll)-1]['hour']+" por "+ll[len(ll)-1]['user'])
+            for i in ll:
+                print(i)
+                if ccc==len(ll)-1:
+                    print(ccc)
+                    self.attL.setText("Ultima modificação em "+i['hour']+" por "+i['user'])
+                ccc+=1
         else:
             self.attL.setText("Sem atualizações recentes")
 
