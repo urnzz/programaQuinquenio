@@ -14,6 +14,34 @@ import pymysql
 import pdfkit
 usuario=''
 
+class Ui_Frame2(object):
+    def setupUi(self, Frame):
+        Frame.setObjectName("Frame")
+        Frame.resize(713, 473)
+        self.gridLayout = QtWidgets.QGridLayout(Frame)
+        self.gridLayout.setObjectName("gridLayout")
+        self.frame = QtWidgets.QFrame(Frame)
+        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame.setObjectName("frame")
+        self.horizontalLayout = QtWidgets.QHBoxLayout(self.frame)
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.pesquisaC = QtWidgets.QLineEdit(self.frame)
+        self.pesquisaC.setObjectName("pesquisaC")
+        self.horizontalLayout.addWidget(self.pesquisaC)
+        self.pesquisaB2 = QtWidgets.QPushButton(self.frame)
+        self.pesquisaB2.setObjectName("pesquisaB2")
+        self.horizontalLayout.addWidget(self.pesquisaB2)
+        self.gridLayout.addWidget(self.frame, 0, 0, 1, 1)
+
+        self.retranslateUi(Frame)
+        QtCore.QMetaObject.connectSlotsByName(Frame)
+
+    def retranslateUi(self, Frame):
+        _translate = QtCore.QCoreApplication.translate
+        Frame.setWindowTitle(_translate("Frame", "pesquisa"))
+        self.pesquisaB2.setText(_translate("Frame", "pesquisar"))
+
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
@@ -1217,6 +1245,13 @@ class Ui_MainWindow(object):
         except:
                 self.reload()
                 self.setData()
+        self.callPesquisa()
+
+    def callPesquisa(self):
+        self.dialog = QtWidgets.QDialog()
+        self.ui1 = Ui_Frame2()
+        self.ui1.setupUi(self.dialog)
+        self.dialog.show()
 
     def setData(self):
         #nome header
@@ -1453,6 +1488,7 @@ class Ui_Form(object):
         self.ui.fQuery()
         self.ui.setData()
         self.window.show()
+
 
     def callAgenda(self):
         self.dialog = QtWidgets.QDialog()
