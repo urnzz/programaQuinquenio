@@ -161,6 +161,18 @@
     </item>
     <item row="0" column="1" rowspan="2">
      <widget class="QFrame" name="frame_6">
+      <property name="minimumSize">
+       <size>
+        <width>200</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>200</width>
+        <height>16777215</height>
+       </size>
+      </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
       </property>
@@ -181,34 +193,94 @@
         <number>0</number>
        </property>
        <item>
-        <widget class="QLineEdit" name="tel1C"/>
+        <widget class="QLineEdit" name="tel1C">
+         <property name="font">
+          <font>
+           <pointsize>17</pointsize>
+          </font>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="tel2C"/>
+        <widget class="QLineEdit" name="tel2C">
+         <property name="font">
+          <font>
+           <pointsize>17</pointsize>
+          </font>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="tel3C"/>
+        <widget class="QLineEdit" name="tel3C">
+         <property name="font">
+          <font>
+           <pointsize>17</pointsize>
+          </font>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="tel4C"/>
+        <widget class="QLineEdit" name="tel4C">
+         <property name="font">
+          <font>
+           <pointsize>17</pointsize>
+          </font>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="tel5C"/>
+        <widget class="QLineEdit" name="tel5C">
+         <property name="font">
+          <font>
+           <pointsize>17</pointsize>
+          </font>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="tel6C"/>
+        <widget class="QLineEdit" name="tel6C">
+         <property name="font">
+          <font>
+           <pointsize>17</pointsize>
+          </font>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="tel7C"/>
+        <widget class="QLineEdit" name="tel7C">
+         <property name="font">
+          <font>
+           <pointsize>17</pointsize>
+          </font>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="tel8C"/>
+        <widget class="QLineEdit" name="tel8C">
+         <property name="font">
+          <font>
+           <pointsize>17</pointsize>
+          </font>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="tel9C"/>
+        <widget class="QLineEdit" name="tel9C">
+         <property name="font">
+          <font>
+           <pointsize>17</pointsize>
+          </font>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="tel10C"/>
+        <widget class="QLineEdit" name="tel10C">
+         <property name="font">
+          <font>
+           <pointsize>17</pointsize>
+          </font>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>

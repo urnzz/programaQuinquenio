@@ -1389,13 +1389,10 @@ class Ui_MainWindow(object):
             obs5 =a['obs5']
 
             s+= """<body align="center"><h1>QUINQUENIO</h1></br><h2>"""+nome+"""</h2></br>
-            <h3>CPF: """+cpf+"""</h3></br>
             <h3>Situacao: """+sit+"""</h3></br>
             <h3>Inicio do beneficio: """+iben+"""</h3><h3>Numero do beneficio: """+nben+"""</h3></br>
-            <h3>RG: """+rg+"""</h3></br>
             <h3>Cargo: """+cargo+"""</h3></br>
             <h3>Sexo: """+sexo+"""</h3></br>
-            <h3>Data de Nascimento: """+dn+"""</h3></br>
             <h3>Endereco 1: """+end1+"""</h3><h3>Observacao: """+obs1+"""</h3></br>
             <h3>Endereco 2: """+end2+"""</h3><h3>Observacao: """+obs2+"""</h3></br>
             <h3>Endereco 3: """+end3+"""</h3><h3>Observacao: """+obs3+"""</h3></br>
