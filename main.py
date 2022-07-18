@@ -9,11 +9,57 @@
 
 from PyQt5.QtCore import QCoreApplication
 from PyQt5 import QtCore, QtGui, QtWidgets
+from threading import *
+import time
 from datetime import datetime
 import pymysql
 import pdfkit
 usuario=''
 currentC=''
+nomeG=''
+idG=''
+cpfG=''
+situacaoG=''
+dataProxG=''
+respFechG=''
+data1G=''
+data2G=''
+data3G=''
+data4G=''
+data5G=''
+resp1G=''
+resp2G=''
+resp3G=''
+resp4G=''
+resp5G=''
+resm1G=''
+resm2G=''
+resm3G=''
+resm4G=''
+resm5G=''
+rgG=''
+cargoG=''
+dnG=''
+end1G=''
+end2G=''
+end3G=''
+end4G=''
+end5G=''
+obs1G=''
+obs2G=''
+obs3G=''
+obs4G=''
+obs5G=''
+tel1G=''
+tel2G=''
+tel3G=''
+tel4G=''
+tel5G=''
+tel6G=''
+tel7G=''
+tel8G=''
+tel9G=''
+tel10G=''
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
@@ -1065,6 +1111,7 @@ class Ui_MainWindow(object):
 
     def init(self):
         self.n=0
+        self.searchB.setFocusPolicy(QtCore.Qt.NoFocus)
         self.nextB.clicked.connect(self.btnProx)
         self.prevB.clicked.connect(self.btnPrev)
         self.saveB.clicked.connect(self.btnSalvar)
@@ -1095,6 +1142,13 @@ class Ui_MainWindow(object):
     def btnPrev(self):
         self.n -= 1
         self.setData()
+
+    def callAutoSave(self):
+        self.worker = workerThread()
+        self.thread = QtCore.QThread()
+        self.worker.moveToThread(self.thread)
+        self.thread.started.connect(self.worker.autoSave)
+        self.thread.start()
 
     def btnSalvar(self):
         nome = self.nomeC.text()
@@ -1174,89 +1228,57 @@ class Ui_MainWindow(object):
         self.fQuery()
         self.setData()
 
+
     def search(self):
             global currentC
             currentC = QtWidgets.QApplication.focusWidget().objectName()
-#        try:
-            nome = Ui_MainWindow.setupUi.nomeC.text()
-            id1 = Ui_MainWindow.setupUi.idC.text()
-            cpf = Ui_MainWindow.setupUi.cpfC.text()
-            sit = Ui_MainWindow.setupUi.situacaoC.currentText()
-            dataProx = Ui_MainWindow.setupUi.dataProxC.date().toString("dd-MM-yyyy")
-            respFech = Ui_MainWindow.setupUi.respFechC.currentText()
-            data1 = Ui_MainWindow.setupUi.dataLig1C.date().toString("dd-MM-yyyy")
-            data2 = Ui_MainWindow.setupUi.dataLig2C.date().toString("dd-MM-yyyy")
-            data3 = Ui_MainWindow.setupUi.dataLig3C.date().toString("dd-MM-yyyy")
-            data4 = Ui_MainWindow.setupUi.dataLig4C.date().toString("dd-MM-yyyy")
-            data5 = Ui_MainWindow.setupUi.dataLig5C.date().toString("dd-MM-yyyy")
-            resp1 = Ui_MainWindow.setupUi.resp1C.currentText()
-            resp2 = Ui_MainWindow.setupUi.resp2C.currentText()
-            resp3 = Ui_MainWindow.setupUi.resp3C.currentText()
-            resp4 = Ui_MainWindow.setupUi.resp4C.currentText()
-            resp5 = Ui_MainWindow.setupUi.resp5C.currentText()
-            resm1 = Ui_MainWindow.setupUi.resm1C.toPlainText()
-            resm2 = Ui_MainWindow.setupUi.resm2C.toPlainText()
-            resm3 = Ui_MainWindow.setupUi.resm3C.toPlainText()
-            resm4 = Ui_MainWindow.setupUi.resm4C.toPlainText()
-            resm5 = Ui_MainWindow.setupUi.resm5C.toPlainText()
-            iben = Ui_MainWindow.setupUi.iBenC.text()
-            nben = Ui_MainWindow.setupUi.nBenC.text()
-            rg = Ui_MainWindow.setupUi.rgC.text()
-            cargo = Ui_MainWindow.setupUi.cargoC.text()
-            sexo = Ui_MainWindow.setupUi.sexoC.text()
-            dn = Ui_MainWindow.setupUi.dnC.text()
-            nmae = Ui_MainWindow.setupUi.nMaeC.text()
-            npai = Ui_MainWindow.setupUi.nPaiC.text()
-            end1 = Ui_MainWindow.setupUi.end1C.text
-            end2 = Ui_MainWindow.setupUi.end2C.text()
-            end3 = Ui_MainWindow.setupUi.end3C.text()
-            end4 = Ui_MainWindow.setupUi.end4C.text()
-            end5 = Ui_MainWindow.setupUi.end5C.text()
-            obs1 = Ui_MainWindow.setupUi.obs1C.currentText()
-            obs2 = Ui_MainWindow.setupUi.obs2C.currentText()
-            obs3 = Ui_MainWindow.setupUi.obs3C.currentText()
-            obs4 = Ui_MainWindow.setupUi.obs4C.currentText()
-            obs5 = Ui_MainWindow.setupUi.obs5C.currentText()
-
-            ls = [nome, id1, cpf, sit, dataProx, respFech, data1, data2, data3, data4, data5, resp1, resp2, resp3, resp4, resp5, resm1, resm2, resm3, resm4, resm5, iben, nben, rg, cargo, sexo, dn, nmae, npai, end1, end2, end3, end4, end5, obs1, obs2, obs3, obs4, obs5]
-            ns = ["nome", "id", "cpf", "situacao", "dataProx", "respFech", "data1", "data2", "data3", "data4", "data5", "resp1", "resp2", "resp3", "resp4", "resp5", "resm1", "resm2", "resm3", "resm4", "resm5", "dataInic", "numeroBeneficio", "rg", "nomeCargo", "sexo", "dn", "nomeMae", "nomePai", "end1", "end2", "end3", "end4", "end5", "obs1", "obs2", "obs3", "obs4", "obs5"]
-            cn=0
-            sl =[]
-            for i in ls:
-                if "?" in i:
-                    sl.append(cn)
-                cn+=1
-            connection = pymysql.connect(host='152.70.156.5',
-                                         user='quinquenio',
-                                         password='gabriel2671',
-                                         database='quinquenio',
-                                         charset='utf8mb4',
-                                         cursorclass=pymysql.cursors.DictCursor)
-            cn=0
-            ss=''
-            dd=''
-            for i in sl:
-                if cn == len(sl)-1:
-                    ss+=ns[i]
-                    dd+="'%"+str(ls[i].replace('?',''))+"%'"
-                else:
-                    ss+=ns[i]+", "
-                    dd+="'%"+str(ls[i].replace('?',''))+"'%, "
-                cn+=1
-            with connection:
-                with connection.cursor() as cursor:
-                    sql = "select * from quinquenioData where "+ss+" like "+dd+";"
-                    cursor.execute(sql)
-                    Ui_MainWindow.result = cursor.fetchall()
-            n=0
-            try:
-                Ui_MainWindow.setData
-            except IndexError:
-                Ui_MainWindow.reload
-                Ui_MainWindow.setData
-        #except:
-         #       Ui_MainWindow.reload
-          #      Ui_MainWindow.setData
+            if currentC != "pesquisaC":
+                try:
+                    connection = pymysql.connect(host='152.70.156.5',
+                                                 user='quinquenio',
+                                                 password='gabriel2671',
+                                                 database='quinquenio',
+                                                 charset='utf8mb4',
+                                                 cursorclass=pymysql.cursors.DictCursor)
+                    dd=self.pesquisaC.text()
+                    with connection:
+                        with connection.cursor() as cursor:
+                            sql = "select * from quinquenioData where "+currentC.replace('C', '')+" like '%"+dd+"%';"
+                            cursor.execute(sql)
+                            self.result = cursor.fetchall()
+                    n=0
+                    try:
+                        self.setData()
+                    except IndexError:
+                        self.reload()
+                        self.setData()
+                except:
+                        self.reload
+                        self.setData
+            else:
+                try:
+                    connection = pymysql.connect(host='152.70.156.5',
+                                                 user='quinquenio',
+                                                 password='gabriel2671',
+                                                 database='quinquenio',
+                                                 charset='utf8mb4',
+                                                 cursorclass=pymysql.cursors.DictCursor)
+                    dd=self.pesquisaC.text()
+                    ns = ["nome, id, cpf, situacao, dataProx, respFech, data1, data2, data3, data4, data5, resp1, resp2, resp3, resp4, resp5, resm1, resm2, resm3, resm4, resm5, dataInic, numeroBeneficio, rg, nomeCargo, sexo, dn, nomeMae, nomePai, end1, end2, end3, end4, end5, obs1, obs2, obs3, obs4, obs5"]
+                    with connection:
+                        with connection.cursor() as cursor:
+                            sql = "select * from quinquenioData where "+ns+" like '%"+dd+"%';"
+                            cursor.execute(sql)
+                            self.result = cursor.fetchall()
+                    n=0
+                    try:
+                        self.setData()
+                    except IndexError:
+                        self.reload()
+                        self.setData()
+                except:
+                        self.reload
+                        self.setData
 
     def setData(self):
         #nome header
@@ -1405,6 +1427,96 @@ class Ui_MainWindow(object):
         #tel10
         self.tel10C.setText(self.result[self.n]['tel10'])
 
+        global nomeG
+        global idG
+        global cpfG
+        global situacaoG
+        global dataProxG
+        global respFechG
+        global data1G
+        global data2G
+        global data3G
+        global data4G
+        global data5G
+        global resp1G
+        global resp2G
+        global resp3G
+        global resp4G
+        global resp5G
+        global resm1G
+        global resm2G
+        global resm3G
+        global resm4G
+        global resm5G
+        global rgG
+        global cargoG
+        global dnG
+        global end1G
+        global end2G
+        global end3G
+        global end4G
+        global end5G
+        global obs1G
+        global obs2G
+        global obs3G
+        global obs4G
+        global obs5G
+        global tel1G
+        global tel2G
+        global tel3G
+        global tel4G
+        global tel5G
+        global tel6G
+        global tel7G
+        global tel8G
+        global tel9G
+        global tel10G
+
+        nomeG = self.nomeC.text()
+        idG = self.idC.text()
+        cpfG = self.cpfC.text()
+        situacaoG = self.situacaoC.currentText()
+        dataProxG = self.dataProxC.date().toString("dd-MM-yyyy")
+        respFechG = self.respFechC.currentText()
+        data1G= self.dataLig1C.date().toString("dd-MM-yyyy")
+        data2G= self.dataLig2C.date().toString("dd-MM-yyyy")
+        data3G= self.dataLig3C.date().toString("dd-MM-yyyy")
+        data4G= self.dataLig4C.date().toString("dd-MM-yyyy")
+        data5G= self.dataLig5C.date().toString("dd-MM-yyyy")
+        resp1G= self.resp1C.currentText()
+        resp2G= self.resp2C.currentText()
+        resp3G= self.resp3C.currentText()
+        resp4G= self.resp4C.currentText()
+        resp5G= self.resp5C.currentText()
+        resm1G= self.resm1C.toPlainText()
+        resm2G= self.resm2C.toPlainText()
+        resm3G= self.resm3C.toPlainText()
+        resm4G= self.resm4C.toPlainText()
+        resm5G= self.resm5C.toPlainText()
+        rgG = self.rgC.text()
+        cargoG = self.cargoC.text()
+        dnG = self.dnC.text()
+        end1G= self.end1C.text()
+        end2G= self.end2C.text()
+        end3G= self.end3C.text()
+        end4G= self.end4C.text()
+        end5G= self.end5C.text()
+        obs1G= self.obs1C.currentText()
+        obs2G= self.obs2C.currentText()
+        obs3G= self.obs3C.currentText()
+        obs4G= self.obs4C.currentText()
+        obs5G= self.obs5C.currentText()
+        tel1G= self.tel1C.text()
+        tel2G= self.tel2C.text()
+        tel3G= self.tel3C.text()
+        tel4G= self.tel4C.text()
+        tel5G= self.tel5C.text()
+        tel6G= self.tel6C.text()
+        tel7G= self.tel7C.text()
+        tel8G= self.tel8C.text()
+        tel9G= self.tel9C.text()
+        tel10G = self.tel10C.text()
+
     def generatePdf(self):
         s=''
         for a in self.result:
@@ -1490,10 +1602,10 @@ class Ui_Form(object):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self.window)
         self.ui.init()
+        self.ui.callAutoSave()
         self.ui.fQuery()
         self.ui.setData()
         self.window.show()
-
 
     def callAgenda(self):
         self.dialog = QtWidgets.QDialog()
@@ -1537,6 +1649,37 @@ class Ui_Form(object):
                     else:
                         self.senhaC.clear()
                         self.userC.clear()
+
+class workerThread(QtCore.QObject):
+        def autoSave(self):
+            while True:
+                self.ui = Ui_MainWindow()
+                t1=Thread(target=self.ss)
+                t1.start()
+                time.sleep(10)
+        def ss(self):
+            paste = "('"+nomeG+"', '"+idG+"', '"+cpfG+"', '"+situacaoG+"', '"+dataProxG+"', '"+respFechG+"', '"+data1G+"', '"+data2G+"', '"+data3G+"', '"+data4G+"', '"+data5G+"', '"+resp1G+"', '"+resp2G+"', '"+resp3G+"', '"+resp4G+"', '"+resp5G+"', '"+resm1G+"', '"+resm2G+"', '"+resm3G+"', '"+resm4G+"', '"+resm5G+"', '"+rgG+"', '"+cargoG+"', '"+dnG+"', '"+end1G+"', '"+end2G+"', '"+end3G+"', '"+end4G+"', '"+end5G+"', '"+obs1G+"', '"+obs2G+"', '"+obs3G+"', '"+obs4G+"', '"+obs5G+"', '"+tel1G+"', '"+tel2G+"', '"+tel3G+"', '"+tel4G+"', '"+tel5G+"', '"+tel6G+"', '"+tel7G+"', '"+tel8G+"', '"+tel9G+"', '"+tel10G+"')"
+
+            columns = "(nome, id, cpf, situacao, dataProx, respFech, data1, data2, data3, data4, data5, resp1, resp2, resp3, resp4, resp5, resm1, resm2, resm3, resm4, resm5, rg, nomeCargo, dn, end1, end2, end3, end4, end5, obs1, obs2, obs3, obs4, obs5, tel1, tel2, tel3, tel4, tel5, tel6, tel7, tel8, tel9, tel10)"
+
+            connection = pymysql.connect(host='152.70.156.5',
+                                         user='quinquenio',
+                                         password='gabriel2671',
+                                         database='quinquenio',
+                                         charset='utf8mb4',
+                                         cursorclass=pymysql.cursors.DictCursor)
+            with connection:
+                with connection.cursor() as cursor:
+                    sql = "REPLACE INTO quinquenioData "+columns+" VALUES "+paste
+                    cursor.execute(sql)
+                    connection.commit()
+                    now = datetime.now()
+                    print(sql)
+                    dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+                    sql = "REPLACE INTO quinquenioLog (user, hour, obs) VALUES ('"+usuario+"', '"+dt_string+"', 'altered "+nomeG+"');"
+                    cursor.execute(sql)
+                    connection.commit()
+                    print(self.ui.resm1.text())
 
 if __name__ == "__main__":
     import sys
