@@ -71,12 +71,7 @@ class Ui_Dialog(object):
         self.dataAgendaL.setText(_translate("Dialog", "DATA"))
 
     def creatItens(self):
-        connection = pymysql.connect(host='152.70.156.5',
-                                     user='quinquenio',
-                                     password='gabriel2671',
-                                     database='quinquenio',
-                                     charset='utf8mb4',
-                                     cursorclass=pymysql.cursors.DictCursor)
+        connection = pymysql.connect(host='152.70.156.5', user='quinquenio', password='gabriel2671', database='quinquenio', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         with connection:
             with connection.cursor() as cursor:
                 now = datetime.now()
@@ -1076,12 +1071,7 @@ class Ui_MainWindow(object):
         self.pdfB.clicked.connect(self.generatePdf)
 
     def fQuery(self):
-        connection = pymysql.connect(host='152.70.156.5',
-                                     user='quinquenio',
-                                     password='gabriel2671',
-                                     database='quinquenio',
-                                     charset='utf8mb4',
-                                     cursorclass=pymysql.cursors.DictCursor)
+        connection = pymysql.connect(host='152.70.156.5', user='quinquenio', password='gabriel2671', database='quinquenio', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         with connection:
             with connection.cursor() as cursor:
                 sql = "SELECT * from quinquenioData"
@@ -1093,165 +1083,87 @@ class Ui_MainWindow(object):
 
     def btnProx(self):
         self.n += 1
+        self.callAutoSave()
         self.setData()
 
     def btnPrev(self):
         self.n -= 1
+        self.callAutoSave()
         self.setData()
 
     def callAutoSave(self):
-        print(self.nomeC.text())
-        self.thread = Thread(target=self.ss, args=(self.nomeC.text(), ))
-        self.thread.start()
+           nome = self.nomeC.text()
+           id1 = self.idC.text()
+           cpf = self.cpfC.text()
+           sit = self.situacaoC.currentText()
+           dataProx = self.dataProxC.date().toString("dd-MM-yyyy")
+           respFech = self.respFechC.currentText()
+           data1 = self.dataLig1C.date().toString("dd-MM-yyyy")
+           data2 = self.dataLig2C.date().toString("dd-MM-yyyy")
+           data3 = self.dataLig3C.date().toString("dd-MM-yyyy")
+           data4 = self.dataLig4C.date().toString("dd-MM-yyyy")
+           data5 = self.dataLig5C.date().toString("dd-MM-yyyy")
+           resp1 = self.resp1C.currentText()
+           resp2 = self.resp2C.currentText()
+           resp3 = self.resp3C.currentText()
+           resp4 = self.resp4C.currentText()
+           resp5 = self.resp5C.currentText()
+           resm1 = self.resm1C.toPlainText()
+           resm2 = self.resm2C.toPlainText()
+           resm3 = self.resm3C.toPlainText()
+           resm4 = self.resm4C.toPlainText()
+           resm5 = self.resm5C.toPlainText()
+           iben = self.iBenC.text()
+           nben = self.nBenC.text()
+           rg = self.rgC.text()
+           cargo = self.cargoC.text()
+           sexo = self.sexoC.text()
+           dn = self.dnC.text()
+           nmae = self.nMaeC.text()
+           npai = self.nPaiC.text()
+           end1 = self.end1C.text()
+           end2 = self.end2C.text()
+           end3 = self.end3C.text()
+           end4 = self.end4C.text()
+           end5 = self.end5C.text()
+           obs1 = self.obs1C.currentText()
+           obs2 = self.obs2C.currentText()
+           obs3 = self.obs3C.currentText()
+           obs4 = self.obs4C.currentText()
+           obs5 = self.obs5C.currentText()
+           tel1 = self.tel1C.text()
+           tel2 = self.tel2C.text()
+           tel3 = self.tel3C.text()
+           tel4 = self.tel4C.text()
+           tel5 = self.tel5C.text()
+           tel6 = self.tel6C.text()
+           tel7 = self.tel7C.text()
+           tel8 = self.tel8C.text()
+           tel9 = self.tel9C.text()
+           tel10 = self.tel10C.text()
+           self.thread = Thread(target=self.ss, args=(nome,id1,cpf,sit,dataProx,respFech,data1,data2,data3,data4,data5,resp1,resp2,resp3,resp4,resp5,resm1,resm2,resm3,resm4,resm5,rg,iben,nben,cargo, sexo,dn,nmae,npai,end1,end2,end3,end4,end5,obs1,obs2,obs3,obs4,obs5,tel1,tel2, tel3, tel4,tel5, tel6, tel7, tel8, tel9, tel10 ))
+           self.thread.start()
 
-    def ss(self, nome):
-        while True:
-            print(nome)
-           #nome = self.nomeC.text()
-           #id1 = self.idC.text()
-           #cpf = self.cpfC.text()
-           #sit = self.situacaoC.currentText()
-           #dataProx = self.dataProxC.date().toString("dd-MM-yyyy")
-           #respFech = self.respFechC.currentText()
-           #data1 = self.dataLig1C.date().toString("dd-MM-yyyy")
-           #data2 = self.dataLig2C.date().toString("dd-MM-yyyy")
-           #data3 = self.dataLig3C.date().toString("dd-MM-yyyy")
-           #data4 = self.dataLig4C.date().toString("dd-MM-yyyy")
-           #data5 = self.dataLig5C.date().toString("dd-MM-yyyy")
-           #resp1 = self.resp1C.currentText()
-           #resp2 = self.resp2C.currentText()
-           #resp3 = self.resp3C.currentText()
-           #resp4 = self.resp4C.currentText()
-           #resp5 = self.resp5C.currentText()
-           #resm1 = self.resm1C.toPlainText()
-           #resm2 = self.resm2C.toPlainText()
-           #resm3 = self.resm3C.toPlainText()
-           #resm4 = self.resm4C.toPlainText()
-           #resm5 = self.resm5C.toPlainText()
-           #iben = self.iBenC.text()
-           #nben = self.nBenC.text()
-           #rg = self.rgC.text()
-           #cargo = self.cargoC.text()
-           #sexo = self.sexoC.text()
-           #dn = self.dnC.text()
-           #nmae = self.nMaeC.text()
-           #npai = self.nPaiC.text()
-           #end1 = self.end1C.text()
-           #end2 = self.end2C.text()
-           #end3 = self.end3C.text()
-           #end4 = self.end4C.text()
-           #end5 = self.end5C.text()
-           #obs1 = self.obs1C.currentText()
-           #obs2 = self.obs2C.currentText()
-           #obs3 = self.obs3C.currentText()
-           #obs4 = self.obs4C.currentText()
-           #obs5 = self.obs5C.currentText()
-           #tel1 = self.tel1C.text()
-           #tel2 = self.tel2C.text()
-           #tel3 = self.tel3C.text()
-           #tel4 = self.tel4C.text()
-           #tel5 = self.tel5C.text()
-           #tel6 = self.tel6C.text()
-           #tel7 = self.tel7C.text()
-           #tel8 = self.tel8C.text()
-           #tel9 = self.tel9C.text()
-           #tel10 = self.tel10C.text()
+    def ss(self,nome,id1,cpf,sit,dataProx,respFech,data1,data2,data3,data4,data5,resp1,resp2,resp3,resp4,resp5,resm1,resm2,resm3,resm4,resm5,rg,iben,nben,cargo, sexo,dn,nmae,npai,end1,end2,end3,end4,end5,obs1,obs2,obs3,obs4,obs5,tel1,tel2, tel3, tel4,tel5, tel6, tel7, tel8, tel9, tel10 ):
+           paste = "('"+nome+"', '"+id1+"', '"+cpf+"', '"+sit+"', '"+dataProx+"', '"+respFech+"', '"+data1+"', '"+data2+"', '"+data3+"', '"+data4+"', '"+data5+"', '"+resp1+"', '"+resp2+"', '"+resp3+"', '"+resp4+"', '"+resp5+"', '"+resm1+"', '"+resm2+"', '"+resm3+"', '"+resm4+"', '"+resm5+"', '"+iben+"', '"+nben+"', '"+rg+"', '"+cargo+"', '"+sexo+"', '"+dn+"', '"+nmae+"', '"+npai+"', '"+end1+"', '"+end2+"', '"+end3+"', '"+end4+"', '"+end5+"', '"+obs1+"', '"+obs2+"', '"+obs3+"', '"+obs4+"', '"+obs5+"', '"+tel1+"', '"+tel2+"', '"+tel3+"', '"+tel4+"', '"+tel5+"', '"+tel6+"', '"+tel7+"', '"+tel8+"', '"+tel9+"', '"+tel10+"')"
 
-           #paste = "('"+nome+"', '"+id1+"', '"+cpf+"', '"+sit+"', '"+dataProx+"', '"+respFech+"', '"+data1+"', '"+data2+"', '"+data3+"', '"+data4+"', '"+data5+"', '"+resp1+"', '"+resp2+"', '"+resp3+"', '"+resp4+"', '"+resp5+"', '"+resm1+"', '"+resm2+"', '"+resm3+"', '"+resm4+"', '"+resm5+"', '"+iben+"', '"+nben+"', '"+rg+"', '"+cargo+"', '"+sexo+"', '"+dn+"', '"+nmae+"', '"+npai+"', '"+end1+"', '"+end2+"', '"+end3+"', '"+end4+"', '"+end5+"', '"+obs1+"', '"+obs2+"', '"+obs3+"', '"+obs4+"', '"+obs5+"', '"+tel1+"', '"+tel2+"', '"+tel3+"', '"+tel4+"', '"+tel5+"', '"+tel6+"', '"+tel7+"', '"+tel8+"', '"+tel9+"', '"+tel10+"')"
+           columns = "(nome, id, cpf, situacao, dataProx, respFech, data1, data2, data3, data4, data5, resp1, resp2, resp3, resp4, resp5, resm1, resm2, resm3, resm4, resm5, dataInic, numeroBeneficio, rg, nomeCargo, sexo, dn, nomeMae, nomePai, end1, end2, end3, end4, end5, obs1, obs2, obs3, obs4, obs5, tel1, tel2, tel3, tel4, tel5, tel6, tel7, tel8, tel9, tel10)"
 
-           #columns = "(nome, id, cpf, situacao, dataProx, respFech, data1, data2, data3, data4, data5, resp1, resp2, resp3, resp4, resp5, resm1, resm2, resm3, resm4, resm5, dataInic, numeroBeneficio, rg, nomeCargo, sexo, dn, nomeMae, nomePai, end1, end2, end3, end4, end5, obs1, obs2, obs3, obs4, obs5, tel1, tel2, tel3, tel4, tel5, tel6, tel7, tel8, tel9, tel10)"
-
-           #connection = pymysql.connect(host='152.70.156.5',
-           #                             user='quinquenio',
-           #                             password='gabriel2671',
-           #                             database='quinquenio',
-           #                             charset='utf8mb4',
-           #                             cursorclass=pymysql.cursors.DictCursor)
-           #with connection:
-           #    with connection.cursor() as cursor:
-           #        sql = "REPLACE INTO quinquenioData "+columns+" VALUES "+paste
-           #        cursor.execute(sql)
-           #        connection.commit()
-           #        now = datetime.now()
-           #        dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
-           #        print(sql)
-           #        sql = "REPLACE INTO quinquenioLog (user, hour, obs) VALUES ('"+usuario+"', '"+dt_string+"', 'altered "+nome+"');"
-           #        cursor.execute(sql)
-           #        connection.commit()
-            time.sleep(10)
+           connection = pymysql.connect(host='152.70.156.5', user='quinquenio', password='gabriel2671', database='quinquenio', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+           with connection:
+               with connection.cursor() as cursor:
+                   sql = "REPLACE INTO quinquenioData "+columns+" VALUES "+paste
+                   cursor.execute(sql)
+                   connection.commit()
+                   now = datetime.now()
+                   dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+                   print(sql)
+                   sql = "REPLACE INTO quinquenioLog (user, hour, obs) VALUES ('"+usuario+"', '"+dt_string+"', 'altered "+nome+"');"
+                   cursor.execute(sql)
+                   connection.commit()
 
     def btnSalvar(self):
-        nome = self.nomeC.text()
-        id1 = self.idC.text()
-        cpf = self.cpfC.text()
-        sit = self.situacaoC.currentText()
-        dataProx = self.dataProxC.date().toString("dd-MM-yyyy")
-        respFech = self.respFechC.currentText()
-        data1 = self.dataLig1C.date().toString("dd-MM-yyyy")
-        data2 = self.dataLig2C.date().toString("dd-MM-yyyy")
-        data3 = self.dataLig3C.date().toString("dd-MM-yyyy")
-        data4 = self.dataLig4C.date().toString("dd-MM-yyyy")
-        data5 = self.dataLig5C.date().toString("dd-MM-yyyy")
-        resp1 = self.resp1C.currentText()
-        resp2 = self.resp2C.currentText()
-        resp3 = self.resp3C.currentText()
-        resp4 = self.resp4C.currentText()
-        resp5 = self.resp5C.currentText()
-        resm1 = self.resm1C.toPlainText()
-        resm2 = self.resm2C.toPlainText()
-        resm3 = self.resm3C.toPlainText()
-        resm4 = self.resm4C.toPlainText()
-        resm5 = self.resm5C.toPlainText()
-        iben = self.iBenC.text()
-        nben = self.nBenC.text()
-        rg = self.rgC.text()
-        cargo = self.cargoC.text()
-        sexo = self.sexoC.text()
-        dn = self.dnC.text()
-        nmae = self.nMaeC.text()
-        npai = self.nPaiC.text()
-        end1 = self.end1C.text()
-        end2 = self.end2C.text()
-        end3 = self.end3C.text()
-        end4 = self.end4C.text()
-        end5 = self.end5C.text()
-        obs1 = self.obs1C.currentText()
-        obs2 = self.obs2C.currentText()
-        obs3 = self.obs3C.currentText()
-        obs4 = self.obs4C.currentText()
-        obs5 = self.obs5C.currentText()
-        tel1 = self.tel1C.text()
-        tel2 = self.tel2C.text()
-        tel3 = self.tel3C.text()
-        tel4 = self.tel4C.text()
-        tel5 = self.tel5C.text()
-        tel6 = self.tel6C.text()
-        tel7 = self.tel7C.text()
-        tel8 = self.tel8C.text()
-        tel9 = self.tel9C.text()
-        tel10 = self.tel10C.text()
-
-        paste = "('"+nome+"', '"+id1+"', '"+cpf+"', '"+sit+"', '"+dataProx+"', '"+respFech+"', '"+data1+"', '"+data2+"', '"+data3+"', '"+data4+"', '"+data5+"', '"+resp1+"', '"+resp2+"', '"+resp3+"', '"+resp4+"', '"+resp5+"', '"+resm1+"', '"+resm2+"', '"+resm3+"', '"+resm4+"', '"+resm5+"', '"+iben+"', '"+nben+"', '"+rg+"', '"+cargo+"', '"+sexo+"', '"+dn+"', '"+nmae+"', '"+npai+"', '"+end1+"', '"+end2+"', '"+end3+"', '"+end4+"', '"+end5+"', '"+obs1+"', '"+obs2+"', '"+obs3+"', '"+obs4+"', '"+obs5+"', '"+tel1+"', '"+tel2+"', '"+tel3+"', '"+tel4+"', '"+tel5+"', '"+tel6+"', '"+tel7+"', '"+tel8+"', '"+tel9+"', '"+tel10+"')"
-
-        columns = "(nome, id, cpf, situacao, dataProx, respFech, data1, data2, data3, data4, data5, resp1, resp2, resp3, resp4, resp5, resm1, resm2, resm3, resm4, resm5, dataInic, numeroBeneficio, rg, nomeCargo, sexo, dn, nomeMae, nomePai, end1, end2, end3, end4, end5, obs1, obs2, obs3, obs4, obs5, tel1, tel2, tel3, tel4, tel5, tel6, tel7, tel8, tel9, tel10)"
-
-        connection = pymysql.connect(host='152.70.156.5',
-                                     user='quinquenio',
-                                     password='gabriel2671',
-                                     database='quinquenio',
-                                     charset='utf8mb4',
-                                     cursorclass=pymysql.cursors.DictCursor)
-        with connection:
-            with connection.cursor() as cursor:
-                sql = "REPLACE INTO quinquenioData "+columns+" VALUES "+paste
-                cursor.execute(sql)
-                connection.commit()
-                now = datetime.now()
-                dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
-                sql = "REPLACE INTO quinquenioLog (user, hour, obs) VALUES ('"+usuario+"', '"+dt_string+"', 'altered "+nome+"');"
-                cursor.execute(sql)
-                connection.commit()
-
+        self.callAutoSave()
         self.fQuery()
         self.setData()
 
@@ -1259,18 +1171,12 @@ class Ui_MainWindow(object):
         self.fQuery()
         self.setData()
 
-
     def search(self):
             global currentC
             currentC = QtWidgets.QApplication.focusWidget().objectName()
             if currentC != "pesquisaC":
                 try:
-                    connection = pymysql.connect(host='152.70.156.5',
-                                                 user='quinquenio',
-                                                 password='gabriel2671',
-                                                 database='quinquenio',
-                                                 charset='utf8mb4',
-                                                 cursorclass=pymysql.cursors.DictCursor)
+                    connection = pymysql.connect(host='152.70.156.5', user='quinquenio', password='gabriel2671', database='quinquenio', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
                     dd=self.pesquisaC.text()
                     with connection:
                         with connection.cursor() as cursor:
@@ -1288,12 +1194,7 @@ class Ui_MainWindow(object):
                         self.setData
             else:
                 try:
-                    connection = pymysql.connect(host='152.70.156.5',
-                                                 user='quinquenio',
-                                                 password='gabriel2671',
-                                                 database='quinquenio',
-                                                 charset='utf8mb4',
-                                                 cursorclass=pymysql.cursors.DictCursor)
+                    connection = pymysql.connect(host='152.70.156.5', user='quinquenio', password='gabriel2671', database='quinquenio', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
                     dd=self.pesquisaC.text()
                     ns = ["nome, id, cpf, situacao, dataProx, respFech, data1, data2, data3, data4, data5, resp1, resp2, resp3, resp4, resp5, resm1, resm2, resm3, resm4, resm5, dataInic, numeroBeneficio, rg, nomeCargo, sexo, dn, nomeMae, nomePai, end1, end2, end3, end4, end5, obs1, obs2, obs3, obs4, obs5"]
                     with connection:
@@ -1588,7 +1489,6 @@ class Ui_Form(object):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self.window)
         self.ui.init()
-        self.ui.callAutoSave()
         self.ui.fQuery()
         self.ui.setData()
         self.window.show()
@@ -1605,12 +1505,7 @@ class Ui_Form(object):
     def authenticate(self):
         self.u = self.userC.text()
         self.p = self.senhaC.text()
-        connection = pymysql.connect(host='152.70.156.5',
-                                     user='quinquenio',
-                                     password='gabriel2671',
-                                     database='quinquenio',
-                                     charset='utf8mb4',
-                                     cursorclass=pymysql.cursors.DictCursor)
+        connection = pymysql.connect(host='152.70.156.5', user='quinquenio', password='gabriel2671', database='quinquenio', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         with connection:
             with connection.cursor() as cursor:
                 sql = "SELECT * from quinquenioCredentials"
