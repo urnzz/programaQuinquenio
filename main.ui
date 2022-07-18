@@ -42,49 +42,7 @@
        <property name="bottomMargin">
         <number>0</number>
        </property>
-       <item row="0" column="0" colspan="2">
-        <widget class="QPushButton" name="prevB">
-         <property name="text">
-          <string>&lt;</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="2">
-        <widget class="QPushButton" name="searchB">
-         <property name="text">
-          <string>PESQUISA</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="3">
-        <widget class="QPushButton" name="nextB">
-         <property name="text">
-          <string>&gt;</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="4">
-        <widget class="QPushButton" name="saveB">
-         <property name="text">
-          <string>SALVAR</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="5">
-        <widget class="QPushButton" name="reloadB">
-         <property name="text">
-          <string>ATUALIZAR</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="6">
-        <widget class="QPushButton" name="pdfB">
-         <property name="text">
-          <string>EXPORTAR PARA PDF</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="7">
+       <item row="0" column="8">
         <widget class="QLabel" name="contagemL">
          <property name="font">
           <font>
@@ -114,7 +72,22 @@
          </property>
         </widget>
        </item>
-       <item row="1" column="1" colspan="5">
+       <item row="1" column="8">
+        <widget class="QLineEdit" name="cpfC">
+         <property name="maximumSize">
+          <size>
+           <width>300</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>17</pointsize>
+          </font>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1" colspan="6">
         <widget class="QLineEdit" name="nomeC">
          <property name="minimumSize">
           <size>
@@ -129,7 +102,7 @@
          </property>
         </widget>
        </item>
-       <item row="1" column="6">
+       <item row="1" column="7">
         <widget class="QLabel" name="cpfL">
          <property name="font">
           <font>
@@ -141,12 +114,54 @@
          </property>
         </widget>
        </item>
-       <item row="1" column="7">
-        <widget class="QLineEdit" name="cpfC">
-         <property name="maximumSize">
+       <item row="0" column="3">
+        <widget class="QPushButton" name="searchB">
+         <property name="text">
+          <string>PESQUISA</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0" colspan="2">
+        <widget class="QPushButton" name="prevB">
+         <property name="text">
+          <string>&lt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="7">
+        <widget class="QPushButton" name="pdfB">
+         <property name="text">
+          <string>EXPORTAR PARA PDF</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="5">
+        <widget class="QPushButton" name="saveB">
+         <property name="text">
+          <string>SALVAR</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="4">
+        <widget class="QPushButton" name="nextB">
+         <property name="text">
+          <string>&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="6">
+        <widget class="QPushButton" name="reloadB">
+         <property name="text">
+          <string>ATUALIZAR</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QLineEdit" name="pesquisaC">
+         <property name="minimumSize">
           <size>
-           <width>300</width>
-           <height>16777215</height>
+           <width>0</width>
+           <height>0</height>
           </size>
          </property>
          <property name="font">

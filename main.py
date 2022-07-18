@@ -14,121 +14,6 @@ import pymysql
 import pdfkit
 usuario=''
 currentC=''
-class Ui_Frame2(object):
-    def setupUi(self, Frame):
-        Frame.setObjectName("Frame")
-        Frame.resize(713, 473)
-        self.gridLayout = QtWidgets.QGridLayout(Frame)
-        self.gridLayout.setObjectName("gridLayout")
-        self.frame = QtWidgets.QFrame(Frame)
-        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame.setObjectName("frame")
-        self.horizontalLayout = QtWidgets.QHBoxLayout(self.frame)
-        self.horizontalLayout.setObjectName("horizontalLayout")
-        self.pesquisaC = QtWidgets.QLineEdit(self.frame)
-        self.pesquisaC.setObjectName("pesquisaC")
-        self.horizontalLayout.addWidget(self.pesquisaC)
-        self.pesquisaB2 = QtWidgets.QPushButton(self.frame)
-        self.pesquisaB2.setObjectName("pesquisaB2")
-        self.horizontalLayout.addWidget(self.pesquisaB2)
-        self.gridLayout.addWidget(self.frame, 0, 0, 1, 1)
-
-        self.retranslateUi(Frame)
-        QtCore.QMetaObject.connectSlotsByName(Frame)
-
-    def retranslateUi(self, Frame):
-        _translate = QtCore.QCoreApplication.translate
-        Frame.setWindowTitle(_translate("Frame", "pesquisa"))
-        self.pesquisaB2.setText(_translate("Frame", "pesquisar"))
-
-
-        self.pesquisaB2.clicked.connect(self.aSearch)
-
-    def aSearch(self):
-#        try:
-            nome = Ui_MainWindow.setupUi.nomeC.text()
-            id1 = Ui_MainWindow.setupUi.idC.text()
-            cpf = Ui_MainWindow.setupUi.cpfC.text()
-            sit = Ui_MainWindow.setupUi.situacaoC.currentText()
-            dataProx = Ui_MainWindow.setupUi.dataProxC.date().toString("dd-MM-yyyy")
-            respFech = Ui_MainWindow.setupUi.respFechC.currentText()
-            data1 = Ui_MainWindow.setupUi.dataLig1C.date().toString("dd-MM-yyyy")
-            data2 = Ui_MainWindow.setupUi.dataLig2C.date().toString("dd-MM-yyyy")
-            data3 = Ui_MainWindow.setupUi.dataLig3C.date().toString("dd-MM-yyyy")
-            data4 = Ui_MainWindow.setupUi.dataLig4C.date().toString("dd-MM-yyyy")
-            data5 = Ui_MainWindow.setupUi.dataLig5C.date().toString("dd-MM-yyyy")
-            resp1 = Ui_MainWindow.setupUi.resp1C.currentText()
-            resp2 = Ui_MainWindow.setupUi.resp2C.currentText()
-            resp3 = Ui_MainWindow.setupUi.resp3C.currentText()
-            resp4 = Ui_MainWindow.setupUi.resp4C.currentText()
-            resp5 = Ui_MainWindow.setupUi.resp5C.currentText()
-            resm1 = Ui_MainWindow.setupUi.resm1C.toPlainText()
-            resm2 = Ui_MainWindow.setupUi.resm2C.toPlainText()
-            resm3 = Ui_MainWindow.setupUi.resm3C.toPlainText()
-            resm4 = Ui_MainWindow.setupUi.resm4C.toPlainText()
-            resm5 = Ui_MainWindow.setupUi.resm5C.toPlainText()
-            iben = Ui_MainWindow.setupUi.iBenC.text()
-            nben = Ui_MainWindow.setupUi.nBenC.text()
-            rg = Ui_MainWindow.setupUi.rgC.text()
-            cargo = Ui_MainWindow.setupUi.cargoC.text()
-            sexo = Ui_MainWindow.setupUi.sexoC.text()
-            dn = Ui_MainWindow.setupUi.dnC.text()
-            nmae = Ui_MainWindow.setupUi.nMaeC.text()
-            npai = Ui_MainWindow.setupUi.nPaiC.text()
-            end1 = Ui_MainWindow.setupUi.end1C.text
-            end2 = Ui_MainWindow.setupUi.end2C.text()
-            end3 = Ui_MainWindow.setupUi.end3C.text()
-            end4 = Ui_MainWindow.setupUi.end4C.text()
-            end5 = Ui_MainWindow.setupUi.end5C.text()
-            obs1 = Ui_MainWindow.setupUi.obs1C.currentText()
-            obs2 = Ui_MainWindow.setupUi.obs2C.currentText()
-            obs3 = Ui_MainWindow.setupUi.obs3C.currentText()
-            obs4 = Ui_MainWindow.setupUi.obs4C.currentText()
-            obs5 = Ui_MainWindow.setupUi.obs5C.currentText()
-
-            ls = [nome, id1, cpf, sit, dataProx, respFech, data1, data2, data3, data4, data5, resp1, resp2, resp3, resp4, resp5, resm1, resm2, resm3, resm4, resm5, iben, nben, rg, cargo, sexo, dn, nmae, npai, end1, end2, end3, end4, end5, obs1, obs2, obs3, obs4, obs5]
-            ns = ["nome", "id", "cpf", "situacao", "dataProx", "respFech", "data1", "data2", "data3", "data4", "data5", "resp1", "resp2", "resp3", "resp4", "resp5", "resm1", "resm2", "resm3", "resm4", "resm5", "dataInic", "numeroBeneficio", "rg", "nomeCargo", "sexo", "dn", "nomeMae", "nomePai", "end1", "end2", "end3", "end4", "end5", "obs1", "obs2", "obs3", "obs4", "obs5"]
-            cn=0
-            sl =[]
-            for i in ls:
-                if "?" in i:
-                    sl.append(cn)
-                cn+=1
-            connection = pymysql.connect(host='152.70.156.5',
-                                         user='quinquenio',
-                                         password='gabriel2671',
-                                         database='quinquenio',
-                                         charset='utf8mb4',
-                                         cursorclass=pymysql.cursors.DictCursor)
-            cn=0
-            ss=''
-            dd=''
-            for i in sl:
-                if cn == len(sl)-1:
-                    ss+=ns[i]
-                    dd+="'%"+str(ls[i].replace('?',''))+"%'"
-                else:
-                    ss+=ns[i]+", "
-                    dd+="'%"+str(ls[i].replace('?',''))+"'%, "
-                cn+=1
-            with connection:
-                with connection.cursor() as cursor:
-                    sql = "select * from quinquenioData where "+ss+" like "+dd+";"
-                    cursor.execute(sql)
-                    Ui_MainWindow.result = cursor.fetchall()
-            n=0
-            try:
-                Ui_MainWindow.setData
-            except IndexError:
-                Ui_MainWindow.reload
-                Ui_MainWindow.setData
-        #except:
-         #       Ui_MainWindow.reload
-          #      Ui_MainWindow.setData
-
-
-
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
@@ -243,31 +128,13 @@ class Ui_MainWindow(object):
         self.gridLayout = QtWidgets.QGridLayout(self.frame)
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
         self.gridLayout.setObjectName("gridLayout")
-        self.prevB = QtWidgets.QPushButton(self.frame)
-        self.prevB.setObjectName("prevB")
-        self.gridLayout.addWidget(self.prevB, 0, 0, 1, 2)
-        self.searchB = QtWidgets.QPushButton(self.frame)
-        self.searchB.setObjectName("searchB")
-        self.gridLayout.addWidget(self.searchB, 0, 2, 1, 1)
-        self.nextB = QtWidgets.QPushButton(self.frame)
-        self.nextB.setObjectName("nextB")
-        self.gridLayout.addWidget(self.nextB, 0, 3, 1, 1)
-        self.saveB = QtWidgets.QPushButton(self.frame)
-        self.saveB.setObjectName("saveB")
-        self.gridLayout.addWidget(self.saveB, 0, 4, 1, 1)
-        self.reloadB = QtWidgets.QPushButton(self.frame)
-        self.reloadB.setObjectName("reloadB")
-        self.gridLayout.addWidget(self.reloadB, 0, 5, 1, 1)
-        self.pdfB = QtWidgets.QPushButton(self.frame)
-        self.pdfB.setObjectName("pdfB")
-        self.gridLayout.addWidget(self.pdfB, 0, 6, 1, 1)
         self.contagemL = QtWidgets.QLabel(self.frame)
         font = QtGui.QFont()
         font.setPointSize(17)
         self.contagemL.setFont(font)
         self.contagemL.setAlignment(QtCore.Qt.AlignCenter)
         self.contagemL.setObjectName("contagemL")
-        self.gridLayout.addWidget(self.contagemL, 0, 7, 1, 1)
+        self.gridLayout.addWidget(self.contagemL, 0, 8, 1, 1)
         self.idC = QtWidgets.QLineEdit(self.frame)
         self.idC.setMaximumSize(QtCore.QSize(30, 16777215))
         font = QtGui.QFont()
@@ -275,28 +142,55 @@ class Ui_MainWindow(object):
         self.idC.setFont(font)
         self.idC.setObjectName("idC")
         self.gridLayout.addWidget(self.idC, 1, 0, 1, 1)
-        self.nomeC = QtWidgets.QLineEdit(self.frame)
-        self.nomeC.setMinimumSize(QtCore.QSize(600, 0))
-        font = QtGui.QFont()
-        font.setPointSize(17)
-        self.nomeC.setFont(font)
-        self.nomeC.setObjectName("nomeC")
-        self.gridLayout.addWidget(self.nomeC, 1, 1, 1, 5)
-        self.cpfL = QtWidgets.QLabel(self.frame)
-        font = QtGui.QFont()
-        font.setPointSize(17)
-        self.cpfL.setFont(font)
-        self.cpfL.setObjectName("cpfL")
-        self.gridLayout.addWidget(self.cpfL, 1, 6, 1, 1)
         self.cpfC = QtWidgets.QLineEdit(self.frame)
         self.cpfC.setMaximumSize(QtCore.QSize(300, 16777215))
         font = QtGui.QFont()
         font.setPointSize(17)
         self.cpfC.setFont(font)
         self.cpfC.setObjectName("cpfC")
-        self.gridLayout.addWidget(self.cpfC, 1, 7, 1, 1)
+        self.gridLayout.addWidget(self.cpfC, 1, 8, 1, 1)
+        self.nomeC = QtWidgets.QLineEdit(self.frame)
+        self.nomeC.setMinimumSize(QtCore.QSize(600, 0))
+        font = QtGui.QFont()
+        font.setPointSize(17)
+        self.nomeC.setFont(font)
+        self.nomeC.setObjectName("nomeC")
+        self.gridLayout.addWidget(self.nomeC, 1, 1, 1, 6)
+        self.cpfL = QtWidgets.QLabel(self.frame)
+        font = QtGui.QFont()
+        font.setPointSize(17)
+        self.cpfL.setFont(font)
+        self.cpfL.setObjectName("cpfL")
+        self.gridLayout.addWidget(self.cpfL, 1, 7, 1, 1)
+        self.searchB = QtWidgets.QPushButton(self.frame)
+        self.searchB.setObjectName("searchB")
+        self.gridLayout.addWidget(self.searchB, 0, 3, 1, 1)
+        self.prevB = QtWidgets.QPushButton(self.frame)
+        self.prevB.setObjectName("prevB")
+        self.gridLayout.addWidget(self.prevB, 0, 0, 1, 2)
+        self.pdfB = QtWidgets.QPushButton(self.frame)
+        self.pdfB.setObjectName("pdfB")
+        self.gridLayout.addWidget(self.pdfB, 0, 7, 1, 1)
+        self.saveB = QtWidgets.QPushButton(self.frame)
+        self.saveB.setObjectName("saveB")
+        self.gridLayout.addWidget(self.saveB, 0, 5, 1, 1)
+        self.nextB = QtWidgets.QPushButton(self.frame)
+        self.nextB.setObjectName("nextB")
+        self.gridLayout.addWidget(self.nextB, 0, 4, 1, 1)
+        self.reloadB = QtWidgets.QPushButton(self.frame)
+        self.reloadB.setObjectName("reloadB")
+        self.gridLayout.addWidget(self.reloadB, 0, 6, 1, 1)
+        self.pesquisaC = QtWidgets.QLineEdit(self.frame)
+        self.pesquisaC.setMinimumSize(QtCore.QSize(0, 0))
+        font = QtGui.QFont()
+        font.setPointSize(17)
+        self.pesquisaC.setFont(font)
+        self.pesquisaC.setObjectName("pesquisaC")
+        self.gridLayout.addWidget(self.pesquisaC, 0, 2, 1, 1)
         self.gridLayout_12.addWidget(self.frame, 0, 0, 1, 1)
         self.frame_6 = QtWidgets.QFrame(self.centralwidget)
+        self.frame_6.setMinimumSize(QtCore.QSize(200, 0))
+        self.frame_6.setMaximumSize(QtCore.QSize(200, 16777215))
         self.frame_6.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_6.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_6.setObjectName("frame_6")
@@ -304,33 +198,63 @@ class Ui_MainWindow(object):
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout.setObjectName("verticalLayout")
         self.tel1C = QtWidgets.QLineEdit(self.frame_6)
+        font = QtGui.QFont()
+        font.setPointSize(17)
+        self.tel1C.setFont(font)
         self.tel1C.setObjectName("tel1C")
         self.verticalLayout.addWidget(self.tel1C)
         self.tel2C = QtWidgets.QLineEdit(self.frame_6)
+        font = QtGui.QFont()
+        font.setPointSize(17)
+        self.tel2C.setFont(font)
         self.tel2C.setObjectName("tel2C")
         self.verticalLayout.addWidget(self.tel2C)
         self.tel3C = QtWidgets.QLineEdit(self.frame_6)
+        font = QtGui.QFont()
+        font.setPointSize(17)
+        self.tel3C.setFont(font)
         self.tel3C.setObjectName("tel3C")
         self.verticalLayout.addWidget(self.tel3C)
         self.tel4C = QtWidgets.QLineEdit(self.frame_6)
+        font = QtGui.QFont()
+        font.setPointSize(17)
+        self.tel4C.setFont(font)
         self.tel4C.setObjectName("tel4C")
         self.verticalLayout.addWidget(self.tel4C)
         self.tel5C = QtWidgets.QLineEdit(self.frame_6)
+        font = QtGui.QFont()
+        font.setPointSize(17)
+        self.tel5C.setFont(font)
         self.tel5C.setObjectName("tel5C")
         self.verticalLayout.addWidget(self.tel5C)
         self.tel6C = QtWidgets.QLineEdit(self.frame_6)
+        font = QtGui.QFont()
+        font.setPointSize(17)
+        self.tel6C.setFont(font)
         self.tel6C.setObjectName("tel6C")
         self.verticalLayout.addWidget(self.tel6C)
         self.tel7C = QtWidgets.QLineEdit(self.frame_6)
+        font = QtGui.QFont()
+        font.setPointSize(17)
+        self.tel7C.setFont(font)
         self.tel7C.setObjectName("tel7C")
         self.verticalLayout.addWidget(self.tel7C)
         self.tel8C = QtWidgets.QLineEdit(self.frame_6)
+        font = QtGui.QFont()
+        font.setPointSize(17)
+        self.tel8C.setFont(font)
         self.tel8C.setObjectName("tel8C")
         self.verticalLayout.addWidget(self.tel8C)
         self.tel9C = QtWidgets.QLineEdit(self.frame_6)
+        font = QtGui.QFont()
+        font.setPointSize(17)
+        self.tel9C.setFont(font)
         self.tel9C.setObjectName("tel9C")
         self.verticalLayout.addWidget(self.tel9C)
         self.tel10C = QtWidgets.QLineEdit(self.frame_6)
+        font = QtGui.QFont()
+        font.setPointSize(17)
+        self.tel10C.setFont(font)
         self.tel10C.setObjectName("tel10C")
         self.verticalLayout.addWidget(self.tel10C)
         self.gridLayout_12.addWidget(self.frame_6, 0, 1, 2, 1)
@@ -1018,14 +942,14 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "QUINQUENIO"))
-        self.prevB.setText(_translate("MainWindow", "<"))
-        self.searchB.setText(_translate("MainWindow", "PESQUISA"))
-        self.nextB.setText(_translate("MainWindow", ">"))
-        self.saveB.setText(_translate("MainWindow", "SALVAR"))
-        self.reloadB.setText(_translate("MainWindow", "ATUALIZAR"))
-        self.pdfB.setText(_translate("MainWindow", "EXPORTAR PARA PDF"))
         self.contagemL.setText(_translate("MainWindow", "0"))
         self.cpfL.setText(_translate("MainWindow", "CPF:"))
+        self.searchB.setText(_translate("MainWindow", "PESQUISA"))
+        self.prevB.setText(_translate("MainWindow", "<"))
+        self.pdfB.setText(_translate("MainWindow", "EXPORTAR PARA PDF"))
+        self.saveB.setText(_translate("MainWindow", "SALVAR"))
+        self.nextB.setText(_translate("MainWindow", ">"))
+        self.reloadB.setText(_translate("MainWindow", "ATUALIZAR"))
         self.situacaoL.setText(_translate("MainWindow", "SITUAÇÃO:"))
         self.situacaoC.setItemText(1, _translate("MainWindow", "CONTRATADO"))
         self.situacaoC.setItemText(2, _translate("MainWindow", "SEM INTERESSE"))
@@ -1139,7 +1063,6 @@ class Ui_MainWindow(object):
         self.obs5C.setItemText(2, _translate("MainWindow", "MUDOU"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "DADOS SEVIDOR"))
 
-
     def init(self):
         self.n=0
         self.nextB.clicked.connect(self.btnProx)
@@ -1252,15 +1175,88 @@ class Ui_MainWindow(object):
         self.setData()
 
     def search(self):
-        global currentC
-        currentC = QtWidgets.QApplication.focusWidget().objectName()
-        self.callPesquisa()
+            global currentC
+            currentC = QtWidgets.QApplication.focusWidget().objectName()
+#        try:
+            nome = Ui_MainWindow.setupUi.nomeC.text()
+            id1 = Ui_MainWindow.setupUi.idC.text()
+            cpf = Ui_MainWindow.setupUi.cpfC.text()
+            sit = Ui_MainWindow.setupUi.situacaoC.currentText()
+            dataProx = Ui_MainWindow.setupUi.dataProxC.date().toString("dd-MM-yyyy")
+            respFech = Ui_MainWindow.setupUi.respFechC.currentText()
+            data1 = Ui_MainWindow.setupUi.dataLig1C.date().toString("dd-MM-yyyy")
+            data2 = Ui_MainWindow.setupUi.dataLig2C.date().toString("dd-MM-yyyy")
+            data3 = Ui_MainWindow.setupUi.dataLig3C.date().toString("dd-MM-yyyy")
+            data4 = Ui_MainWindow.setupUi.dataLig4C.date().toString("dd-MM-yyyy")
+            data5 = Ui_MainWindow.setupUi.dataLig5C.date().toString("dd-MM-yyyy")
+            resp1 = Ui_MainWindow.setupUi.resp1C.currentText()
+            resp2 = Ui_MainWindow.setupUi.resp2C.currentText()
+            resp3 = Ui_MainWindow.setupUi.resp3C.currentText()
+            resp4 = Ui_MainWindow.setupUi.resp4C.currentText()
+            resp5 = Ui_MainWindow.setupUi.resp5C.currentText()
+            resm1 = Ui_MainWindow.setupUi.resm1C.toPlainText()
+            resm2 = Ui_MainWindow.setupUi.resm2C.toPlainText()
+            resm3 = Ui_MainWindow.setupUi.resm3C.toPlainText()
+            resm4 = Ui_MainWindow.setupUi.resm4C.toPlainText()
+            resm5 = Ui_MainWindow.setupUi.resm5C.toPlainText()
+            iben = Ui_MainWindow.setupUi.iBenC.text()
+            nben = Ui_MainWindow.setupUi.nBenC.text()
+            rg = Ui_MainWindow.setupUi.rgC.text()
+            cargo = Ui_MainWindow.setupUi.cargoC.text()
+            sexo = Ui_MainWindow.setupUi.sexoC.text()
+            dn = Ui_MainWindow.setupUi.dnC.text()
+            nmae = Ui_MainWindow.setupUi.nMaeC.text()
+            npai = Ui_MainWindow.setupUi.nPaiC.text()
+            end1 = Ui_MainWindow.setupUi.end1C.text
+            end2 = Ui_MainWindow.setupUi.end2C.text()
+            end3 = Ui_MainWindow.setupUi.end3C.text()
+            end4 = Ui_MainWindow.setupUi.end4C.text()
+            end5 = Ui_MainWindow.setupUi.end5C.text()
+            obs1 = Ui_MainWindow.setupUi.obs1C.currentText()
+            obs2 = Ui_MainWindow.setupUi.obs2C.currentText()
+            obs3 = Ui_MainWindow.setupUi.obs3C.currentText()
+            obs4 = Ui_MainWindow.setupUi.obs4C.currentText()
+            obs5 = Ui_MainWindow.setupUi.obs5C.currentText()
 
-    def callPesquisa(self):
-        self.frame = QtWidgets.QFrame()
-        self.ui1 = Ui_Frame2()
-        self.ui1.setupUi(self.frame)
-        self.frame.show()
+            ls = [nome, id1, cpf, sit, dataProx, respFech, data1, data2, data3, data4, data5, resp1, resp2, resp3, resp4, resp5, resm1, resm2, resm3, resm4, resm5, iben, nben, rg, cargo, sexo, dn, nmae, npai, end1, end2, end3, end4, end5, obs1, obs2, obs3, obs4, obs5]
+            ns = ["nome", "id", "cpf", "situacao", "dataProx", "respFech", "data1", "data2", "data3", "data4", "data5", "resp1", "resp2", "resp3", "resp4", "resp5", "resm1", "resm2", "resm3", "resm4", "resm5", "dataInic", "numeroBeneficio", "rg", "nomeCargo", "sexo", "dn", "nomeMae", "nomePai", "end1", "end2", "end3", "end4", "end5", "obs1", "obs2", "obs3", "obs4", "obs5"]
+            cn=0
+            sl =[]
+            for i in ls:
+                if "?" in i:
+                    sl.append(cn)
+                cn+=1
+            connection = pymysql.connect(host='152.70.156.5',
+                                         user='quinquenio',
+                                         password='gabriel2671',
+                                         database='quinquenio',
+                                         charset='utf8mb4',
+                                         cursorclass=pymysql.cursors.DictCursor)
+            cn=0
+            ss=''
+            dd=''
+            for i in sl:
+                if cn == len(sl)-1:
+                    ss+=ns[i]
+                    dd+="'%"+str(ls[i].replace('?',''))+"%'"
+                else:
+                    ss+=ns[i]+", "
+                    dd+="'%"+str(ls[i].replace('?',''))+"'%, "
+                cn+=1
+            with connection:
+                with connection.cursor() as cursor:
+                    sql = "select * from quinquenioData where "+ss+" like "+dd+";"
+                    cursor.execute(sql)
+                    Ui_MainWindow.result = cursor.fetchall()
+            n=0
+            try:
+                Ui_MainWindow.setData
+            except IndexError:
+                Ui_MainWindow.reload
+                Ui_MainWindow.setData
+        #except:
+         #       Ui_MainWindow.reload
+          #      Ui_MainWindow.setData
 
     def setData(self):
         #nome header
