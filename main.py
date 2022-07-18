@@ -13,7 +13,7 @@ from datetime import datetime
 import pymysql
 import pdfkit
 usuario=''
-
+currentC=''
 class Ui_Frame2(object):
     def setupUi(self, Frame):
         Frame.setObjectName("Frame")
@@ -41,6 +41,93 @@ class Ui_Frame2(object):
         _translate = QtCore.QCoreApplication.translate
         Frame.setWindowTitle(_translate("Frame", "pesquisa"))
         self.pesquisaB2.setText(_translate("Frame", "pesquisar"))
+
+
+        self.pesquisaB2.clicked.connect(self.aSearch)
+
+    def aSearch(self):
+#        try:
+            nome = Ui_MainWindow.setupUi.nomeC.text()
+            id1 = Ui_MainWindow.setupUi.idC.text()
+            cpf = Ui_MainWindow.setupUi.cpfC.text()
+            sit = Ui_MainWindow.setupUi.situacaoC.currentText()
+            dataProx = Ui_MainWindow.setupUi.dataProxC.date().toString("dd-MM-yyyy")
+            respFech = Ui_MainWindow.setupUi.respFechC.currentText()
+            data1 = Ui_MainWindow.setupUi.dataLig1C.date().toString("dd-MM-yyyy")
+            data2 = Ui_MainWindow.setupUi.dataLig2C.date().toString("dd-MM-yyyy")
+            data3 = Ui_MainWindow.setupUi.dataLig3C.date().toString("dd-MM-yyyy")
+            data4 = Ui_MainWindow.setupUi.dataLig4C.date().toString("dd-MM-yyyy")
+            data5 = Ui_MainWindow.setupUi.dataLig5C.date().toString("dd-MM-yyyy")
+            resp1 = Ui_MainWindow.setupUi.resp1C.currentText()
+            resp2 = Ui_MainWindow.setupUi.resp2C.currentText()
+            resp3 = Ui_MainWindow.setupUi.resp3C.currentText()
+            resp4 = Ui_MainWindow.setupUi.resp4C.currentText()
+            resp5 = Ui_MainWindow.setupUi.resp5C.currentText()
+            resm1 = Ui_MainWindow.setupUi.resm1C.toPlainText()
+            resm2 = Ui_MainWindow.setupUi.resm2C.toPlainText()
+            resm3 = Ui_MainWindow.setupUi.resm3C.toPlainText()
+            resm4 = Ui_MainWindow.setupUi.resm4C.toPlainText()
+            resm5 = Ui_MainWindow.setupUi.resm5C.toPlainText()
+            iben = Ui_MainWindow.setupUi.iBenC.text()
+            nben = Ui_MainWindow.setupUi.nBenC.text()
+            rg = Ui_MainWindow.setupUi.rgC.text()
+            cargo = Ui_MainWindow.setupUi.cargoC.text()
+            sexo = Ui_MainWindow.setupUi.sexoC.text()
+            dn = Ui_MainWindow.setupUi.dnC.text()
+            nmae = Ui_MainWindow.setupUi.nMaeC.text()
+            npai = Ui_MainWindow.setupUi.nPaiC.text()
+            end1 = Ui_MainWindow.setupUi.end1C.text
+            end2 = Ui_MainWindow.setupUi.end2C.text()
+            end3 = Ui_MainWindow.setupUi.end3C.text()
+            end4 = Ui_MainWindow.setupUi.end4C.text()
+            end5 = Ui_MainWindow.setupUi.end5C.text()
+            obs1 = Ui_MainWindow.setupUi.obs1C.currentText()
+            obs2 = Ui_MainWindow.setupUi.obs2C.currentText()
+            obs3 = Ui_MainWindow.setupUi.obs3C.currentText()
+            obs4 = Ui_MainWindow.setupUi.obs4C.currentText()
+            obs5 = Ui_MainWindow.setupUi.obs5C.currentText()
+
+            ls = [nome, id1, cpf, sit, dataProx, respFech, data1, data2, data3, data4, data5, resp1, resp2, resp3, resp4, resp5, resm1, resm2, resm3, resm4, resm5, iben, nben, rg, cargo, sexo, dn, nmae, npai, end1, end2, end3, end4, end5, obs1, obs2, obs3, obs4, obs5]
+            ns = ["nome", "id", "cpf", "situacao", "dataProx", "respFech", "data1", "data2", "data3", "data4", "data5", "resp1", "resp2", "resp3", "resp4", "resp5", "resm1", "resm2", "resm3", "resm4", "resm5", "dataInic", "numeroBeneficio", "rg", "nomeCargo", "sexo", "dn", "nomeMae", "nomePai", "end1", "end2", "end3", "end4", "end5", "obs1", "obs2", "obs3", "obs4", "obs5"]
+            cn=0
+            sl =[]
+            for i in ls:
+                if "?" in i:
+                    sl.append(cn)
+                cn+=1
+            connection = pymysql.connect(host='152.70.156.5',
+                                         user='quinquenio',
+                                         password='gabriel2671',
+                                         database='quinquenio',
+                                         charset='utf8mb4',
+                                         cursorclass=pymysql.cursors.DictCursor)
+            cn=0
+            ss=''
+            dd=''
+            for i in sl:
+                if cn == len(sl)-1:
+                    ss+=ns[i]
+                    dd+="'%"+str(ls[i].replace('?',''))+"%'"
+                else:
+                    ss+=ns[i]+", "
+                    dd+="'%"+str(ls[i].replace('?',''))+"'%, "
+                cn+=1
+            with connection:
+                with connection.cursor() as cursor:
+                    sql = "select * from quinquenioData where "+ss+" like "+dd+";"
+                    cursor.execute(sql)
+                    Ui_MainWindow.result = cursor.fetchall()
+            n=0
+            try:
+                Ui_MainWindow.setData
+            except IndexError:
+                Ui_MainWindow.reload
+                Ui_MainWindow.setData
+        #except:
+         #       Ui_MainWindow.reload
+          #      Ui_MainWindow.setData
+
+
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
@@ -1165,93 +1252,15 @@ class Ui_MainWindow(object):
         self.setData()
 
     def search(self):
-        try:
-            nome = self.nomeC.text()
-            id1 = self.idC.text()
-            cpf = self.cpfC.text()
-            sit = self.situacaoC.currentText()
-            dataProx = self.dataProxC.date().toString("dd-MM-yyyy")
-            respFech = self.respFechC.currentText()
-            data1 = self.dataLig1C.date().toString("dd-MM-yyyy")
-            data2 = self.dataLig2C.date().toString("dd-MM-yyyy")
-            data3 = self.dataLig3C.date().toString("dd-MM-yyyy")
-            data4 = self.dataLig4C.date().toString("dd-MM-yyyy")
-            data5 = self.dataLig5C.date().toString("dd-MM-yyyy")
-            resp1 = self.resp1C.currentText()
-            resp2 = self.resp2C.currentText()
-            resp3 = self.resp3C.currentText()
-            resp4 = self.resp4C.currentText()
-            resp5 = self.resp5C.currentText()
-            resm1 = self.resm1C.toPlainText()
-            resm2 = self.resm2C.toPlainText()
-            resm3 = self.resm3C.toPlainText()
-            resm4 = self.resm4C.toPlainText()
-            resm5 = self.resm5C.toPlainText()
-            iben = self.iBenC.text()
-            nben = self.nBenC.text()
-            rg = self.rgC.text()
-            cargo = self.cargoC.text()
-            sexo = self.sexoC.text()
-            dn = self.dnC.text()
-            nmae = self.nMaeC.text()
-            npai = self.nPaiC.text()
-            end1 = self.end1C.text()
-            end2 = self.end2C.text()
-            end3 = self.end3C.text()
-            end4 = self.end4C.text()
-            end5 = self.end5C.text()
-            obs1 = self.obs1C.currentText()
-            obs2 = self.obs2C.currentText()
-            obs3 = self.obs3C.currentText()
-            obs4 = self.obs4C.currentText()
-            obs5 = self.obs5C.currentText()
-
-            ls = [nome, id1, cpf, sit, dataProx, respFech, data1, data2, data3, data4, data5, resp1, resp2, resp3, resp4, resp5, resm1, resm2, resm3, resm4, resm5, iben, nben, rg, cargo, sexo, dn, nmae, npai, end1, end2, end3, end4, end5, obs1, obs2, obs3, obs4, obs5]
-            ns = ["nome", "id", "cpf", "situacao", "dataProx", "respFech", "data1", "data2", "data3", "data4", "data5", "resp1", "resp2", "resp3", "resp4", "resp5", "resm1", "resm2", "resm3", "resm4", "resm5", "dataInic", "numeroBeneficio", "rg", "nomeCargo", "sexo", "dn", "nomeMae", "nomePai", "end1", "end2", "end3", "end4", "end5", "obs1", "obs2", "obs3", "obs4", "obs5"]
-            cn=0
-            sl =[]
-            for i in ls:
-                if "?" in i:
-                    sl.append(cn)
-                cn+=1
-            connection = pymysql.connect(host='152.70.156.5',
-                                         user='quinquenio',
-                                         password='gabriel2671',
-                                         database='quinquenio',
-                                         charset='utf8mb4',
-                                         cursorclass=pymysql.cursors.DictCursor)
-            cn=0
-            ss=''
-            dd=''
-            for i in sl:
-                if cn == len(sl)-1:
-                    ss+=ns[i]
-                    dd+="'%"+str(ls[i].replace('?',''))+"%'"
-                else:
-                    ss+=ns[i]+", "
-                    dd+="'%"+str(ls[i].replace('?',''))+"'%, "
-                cn+=1
-            with connection:
-                with connection.cursor() as cursor:
-                    sql = "select * from quinquenioData where "+ss+" like "+dd+";"
-                    cursor.execute(sql)
-                    self.result = cursor.fetchall()
-            n=0
-            try:
-                self.setData()
-            except IndexError:
-                self.reload()
-                self.setData()
-        except:
-                self.reload()
-                self.setData()
+        global currentC
+        currentC = QtWidgets.QApplication.focusWidget().objectName()
         self.callPesquisa()
 
     def callPesquisa(self):
-        self.dialog = QtWidgets.QDialog()
+        self.frame = QtWidgets.QFrame()
         self.ui1 = Ui_Frame2()
-        self.ui1.setupUi(self.dialog)
-        self.dialog.show()
+        self.ui1.setupUi(self.frame)
+        self.frame.show()
 
     def setData(self):
         #nome header
