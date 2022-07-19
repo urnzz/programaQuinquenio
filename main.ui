@@ -46,7 +46,7 @@
         <widget class="QLabel" name="contagemL">
          <property name="font">
           <font>
-           <pointsize>17</pointsize>
+           <pointsize>11</pointsize>
           </font>
          </property>
          <property name="text">
@@ -67,7 +67,7 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>17</pointsize>
+           <pointsize>11</pointsize>
           </font>
          </property>
         </widget>
@@ -82,7 +82,7 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>17</pointsize>
+           <pointsize>11</pointsize>
           </font>
          </property>
         </widget>
@@ -97,7 +97,7 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>17</pointsize>
+           <pointsize>11</pointsize>
           </font>
          </property>
         </widget>
@@ -106,7 +106,7 @@
         <widget class="QLabel" name="cpfL">
          <property name="font">
           <font>
-           <pointsize>17</pointsize>
+           <pointsize>11</pointsize>
           </font>
          </property>
          <property name="text">
@@ -166,7 +166,7 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>17</pointsize>
+           <pointsize>11</pointsize>
           </font>
          </property>
         </widget>
@@ -368,7 +368,7 @@
                <widget class="QLabel" name="situacaoL">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -380,7 +380,7 @@
                <widget class="QComboBox" name="situacaoC">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <item>
@@ -464,7 +464,7 @@
                <widget class="QLabel" name="dataProximL">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -488,7 +488,7 @@
                <widget class="QLabel" name="respFechL">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -500,7 +500,7 @@
                <widget class="QComboBox" name="respFechC">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <item>
@@ -561,7 +561,7 @@
                <widget class="QLabel" name="dataLig1L">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -573,7 +573,7 @@
                <widget class="QDateEdit" name="dataLig1C">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="displayFormat">
@@ -597,7 +597,7 @@
                <widget class="QComboBox" name="resp1C">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <item>
@@ -646,7 +646,7 @@
                <widget class="QLabel" name="resm1L">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -658,7 +658,7 @@
                <widget class="QTextEdit" name="resm1C">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                </widget>
@@ -691,7 +691,7 @@
                <widget class="QLabel" name="dataLig2L">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -703,7 +703,7 @@
                <widget class="QDateEdit" name="dataLig2C">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="displayFormat">
@@ -715,7 +715,7 @@
                <widget class="QLabel" name="resp2L">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -727,7 +727,7 @@
                <widget class="QComboBox" name="resp2C">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <item>
@@ -776,7 +776,7 @@
                <widget class="QLabel" name="resm2L">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -788,7 +788,7 @@
                <widget class="QTextEdit" name="resm2C">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                </widget>
@@ -821,7 +821,7 @@
                <widget class="QLabel" name="dataLig3L">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -833,7 +833,7 @@
                <widget class="QDateEdit" name="dataLig3C">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="displayFormat">
@@ -857,7 +857,7 @@
                <widget class="QLabel" name="resm3L">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -869,7 +869,7 @@
                <widget class="QTextEdit" name="resm3C">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                </widget>
@@ -878,7 +878,7 @@
                <widget class="QComboBox" name="resp3C">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <item>
@@ -951,7 +951,7 @@
                <widget class="QLabel" name="dataLig4L">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -963,7 +963,7 @@
                <widget class="QDateEdit" name="dataLig4C">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="displayFormat">
@@ -987,7 +987,7 @@
                <widget class="QLabel" name="resm4L">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -999,7 +999,7 @@
                <widget class="QTextEdit" name="resm4C">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                </widget>
@@ -1008,7 +1008,7 @@
                <widget class="QComboBox" name="resp4C">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <item>
@@ -1081,7 +1081,7 @@
                <widget class="QLabel" name="dataLig5L">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1093,7 +1093,7 @@
                <widget class="QDateEdit" name="dataLig5C">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="displayFormat">
@@ -1117,7 +1117,7 @@
                <widget class="QLabel" name="resm5L">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1129,7 +1129,7 @@
                <widget class="QTextEdit" name="resm5C">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                </widget>
@@ -1138,7 +1138,7 @@
                <widget class="QComboBox" name="resp5C">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <item>
@@ -1282,7 +1282,7 @@
                 </property>
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1300,7 +1300,7 @@
                 </property>
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                </widget>
@@ -1309,7 +1309,7 @@
                <widget class="QLabel" name="nMaeL">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1321,7 +1321,7 @@
                <widget class="QLabel" name="sexoL">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1339,7 +1339,7 @@
                 </property>
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1357,7 +1357,7 @@
                 </property>
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1369,7 +1369,7 @@
                <widget class="QLabel" name="nPaiL">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1387,7 +1387,7 @@
                 </property>
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1405,7 +1405,7 @@
                 </property>
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1423,7 +1423,7 @@
                 </property>
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1441,7 +1441,7 @@
                 </property>
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1459,7 +1459,7 @@
                 </property>
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                </widget>
@@ -1468,7 +1468,7 @@
                <widget class="QLabel" name="dnL">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1486,7 +1486,7 @@
                 </property>
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1498,7 +1498,7 @@
                <widget class="QLabel" name="rgL">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1510,7 +1510,7 @@
                <widget class="QLabel" name="cargoL">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1522,7 +1522,7 @@
                <widget class="QLabel" name="nBenL">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1534,7 +1534,7 @@
                <widget class="QLabel" name="cpf2L">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1546,7 +1546,7 @@
                <widget class="QLabel" name="iBenL">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1558,7 +1558,7 @@
                <widget class="QLabel" name="nomeL">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1571,6 +1571,11 @@
            </item>
            <item>
             <widget class="QFrame" name="frame_4">
+             <property name="font">
+              <font>
+               <pointsize>11</pointsize>
+              </font>
+             </property>
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
              </property>
@@ -1594,7 +1599,7 @@
                <widget class="QLabel" name="end1L">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1612,7 +1617,7 @@
                 </property>
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1624,7 +1629,7 @@
                <widget class="QLabel" name="obs1L">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1636,7 +1641,7 @@
                <widget class="QComboBox" name="obs1C">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <item>
@@ -1660,7 +1665,7 @@
                <widget class="QLabel" name="end2L">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1678,7 +1683,7 @@
                 </property>
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1690,7 +1695,7 @@
                <widget class="QLabel" name="obs2L">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1702,7 +1707,7 @@
                <widget class="QComboBox" name="obs2C">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <item>
@@ -1726,7 +1731,7 @@
                <widget class="QLabel" name="end3L">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1744,7 +1749,7 @@
                 </property>
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1756,7 +1761,7 @@
                <widget class="QLabel" name="obs3L">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1768,7 +1773,7 @@
                <widget class="QComboBox" name="obs3C">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <item>
@@ -1792,7 +1797,7 @@
                <widget class="QLabel" name="end4L">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1810,7 +1815,7 @@
                 </property>
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1822,7 +1827,7 @@
                <widget class="QLabel" name="obs4L">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1834,7 +1839,7 @@
                <widget class="QComboBox" name="obs4C">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <item>
@@ -1858,7 +1863,7 @@
                <widget class="QLabel" name="end5L">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1876,7 +1881,7 @@
                 </property>
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1888,7 +1893,7 @@
                <widget class="QLabel" name="obs5L">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1900,7 +1905,7 @@
                <widget class="QComboBox" name="obs5C">
                 <property name="font">
                  <font>
-                  <pointsize>17</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <item>
